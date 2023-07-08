@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>carousel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="description" content="" />
+
+    <script>
+        var init = 0;
+        function btn()
+        {
+            init++;
+            if(init==1 && !(init>5)){
+                var img = document.createElement("img");                    
+                img.src="2.jpg";                                         
+                document.getElementById('image').style.display='none';      
+                var final = document.getElementById('image1');                
+                final.appendChild(img);                                       
+            }
+            else if(init==2)
+            {
+                var img = document.createElement("img");
+                img.src="3.jpg";
+                document.getElementById('image1').style.display='none';
+                var final = document.getElementById('image2');
+                final.appendChild(img);
+            }
+            else if(init==3)
+            {
+                var img = document.createElement("img");
+                img.src="4.jpg";
+                document.getElementById('image2').style.display='none';
+                var final = document.getElementById('image3');
+                final.appendChild(img);
+            }
+            else if(init ==4)
+            {
+                var img = document.createElement("img");
+                img.src="5.jpg";
+                document.getElementById('image3').style.display='none';
+                var final = document.getElementById('image4');
+                final.appendChild(img);
+            }
+            else{
+                alert('All Images are already Viwed')
+            }
+        }
+    </script>
+
+
+</head>
+
+<body>
+
+    <!-- using single loop 
+        <center><img id="img1" width="800" height="600" style="margin-top: 50px;" onclick="btn()"></center>    
+    </div> -->
+
+    <div id="heading">      
+        <h1 align="center">CAROUSEL</h1>
+    </div>
+    <div class="image" align="center">
+        <img id="image" style="width: 600px; height: 400px;" src="1.jpg" onclick=btn()>
+    </div>
+    <div id="image1" onclick=btn() align="center">            
+    </div>     
+    <div id="image2" onclick=btn() align="center">            
+    </div>
+    <div id="image3" onclick=btn() align="center">            
+    </div>
+    <div id="image4" onclick=btn() align="center">            
+    </div>
+
+
+</body>
+
+</html>
