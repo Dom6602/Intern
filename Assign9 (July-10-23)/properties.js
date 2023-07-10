@@ -5,4 +5,4 @@ let details = {
     clg: "gce"
 }
 
-console.log(details)
+console.log(Object.keys(details))
