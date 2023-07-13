@@ -12,6 +12,8 @@ title.textContent = "Simple HTML Page using HTML DOM";
 h1.textContent = "Welcome";
 paragraph.textContent = "This is a simple HTML page created using pure JavaScript.";
 link.textContent = "Link";
+h1.style.textAlign ="center"
+paragraph.style.textAlign ="center"
 
 // Set the href attribute for the link
 link.setAttribute("href", "darkdevil00.000webhostapp.com");
