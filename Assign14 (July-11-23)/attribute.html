@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<h1>Get Attribute value using Html DOM</h1>
+
+<p><a id="w3r" type="text/html" hreflang="en-us" rel="nofollow" target="_self" href="https://www.w3resource.com/">w3resource</a></p>
+
+<button onclick="getAttributes()">Click</button>
+
+<p id="type"></p>
+<p id="hreflang"></p>
+<p id="rel"></p>
+<p id="target"></p>
+<p id="href"></p>
+
+
+<script>
+function getAttributes() {
+  let ele = document.getElementById("w3r").getAttribute('type')
+  document.getElementById("type").innerHTML = ele;
+  ele1 = document.getElementById("w3r").getAttribute('hreflang')
+  document.getElementById("hreflang").innerHTML = ele1;
+  ele2 = document.getElementById("w3r").getAttribute('rel')
+  document.getElementById("rel").innerHTML = ele2;
+  ele3 = document.getElementById("w3r").getAttribute('target')
+  document.getElementById("target").innerHTML = ele3;
+  ele4 = document.getElementById("w3r").getAttribute('href')
+  document.getElementById("href").innerHTML = ele4;
+
+  // alert("href: " + href + "\nhreflang: " + hreflang + "\nrel: " + rel + "\ntarget: " + target + "\ntype: " + type);
+
+}
+</script>
+
+</body>
+</html>
