@@ -1,0 +1,186 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <title> Bulls and Cows Game </title>
+  
+    <style>
+
+          h1,div {
+              text-align: center;
+          }
+
+          body {
+            background-image: url('1.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+
+          }
+
+          #no {
+            width: 120px;
+            text-align: center;
+            background-color: rgb(226, 220, 220);
+            border-radius: 5px;
+          }
+
+          #btn {
+            background-color: rgb(19, 234, 83);
+            border-radius: 5px;
+          }
+
+
+          .left-box {
+          border: 1px solid #e629aa;
+          padding: 10px;
+          width: 200px;
+          height: 300px;
+          margin-right: 40px;
+          margin-top: 40px;
+          float: left;
+          text-align: center;
+          border-radius: 10px;
+        }
+
+        .right-box {
+          border: 1px solid #cc3939;
+          padding: 10px;
+          width: 200px;
+          height: 300px;
+          margin-left: 40px;
+          margin-top: 40px;
+          float: right;
+          text-align: center;
+          border-radius: 10px;
+        }
+
+        .center-box {
+        border: none;
+        padding: 10px;
+        width: 600px;
+        height: 10px;
+        margin: 0 auto;
+        margin-top: 470px;
+        text-align: center;
+        border-radius: 5px;
+      }
+
+    </style>  
+
+</head>  
+
+<body>  
+    <div>
+      <h1 style="font-size: 25px;">Bulls and Cows is a 2 player game. One player thinks of a number, while the other player tries to guess it.
+        The number to be guessed must be a 4 digit number, use non repeated digits</h1>
+        <form>
+          <input type="number" id="no" max="4" required>
+          <button id="btn" type="button" onclick="button()">Start Game!</button>
+        </form>
+    </div>
+
+    <div class="left-box">
+      <p id = "cow"></p>
+    </div>
+    <div class="right-box">
+      <p id ="bull"></p>
+    </div>
+    <div class="center-box">
+      <p id= "output" style="color: rgb(230, 14, 122); font-size: 30px;"></p>
+    </div>
+
+
+<script>
+
+//random num-----------------------------------------
+
+function generateRandomNumbers() {
+  var numbers = [];
+  while (numbers.length < 4) {
+    var randomNumber = Math.floor(Math.random() * 10);
+    // console.log([1,2,9,4,5].indexOf(9))
+    if (numbers.indexOf(randomNumber) === -1) {
+      numbers.push(randomNumber);
+    }
+  }
+  return numbers;
+}
+var randomNumbers = generateRandomNumbers();
+console.log(randomNumbers);
+
+//button--------------------------------------------
+
+let temp = 0
+
+function button() {
+
+  bull = []
+  cow = []
+
+  console.log(bull)
+  console.log(cow)
+
+  let guess = document.getElementById('no').value;
+  // console.log(guess);
+  guessNumbers = guess.split("").map(Number);
+  console.log(guessNumbers);
+
+  var changeNumbers = Array.from(randomNumbers)
+  var temp1 = changeNumbers[2];
+  changeNumbers[2] = changeNumbers[3];
+  changeNumbers[3] = temp1;
+  console.log(changeNumbers);
+
+
+  temp = temp + guessNumbers.length
+  Attempt = temp / 4
+
+  if (JSON.stringify(randomNumbers) === JSON.stringify(guessNumbers)){
+      document.getElementById("bull").innerHTML += " 4 Bulls" + "<br>"
+      document.getElementById("cow").innerHTML += " 0 Cows" + "<br>"
+      document.getElementById("output").innerHTML += "U are guessed Correct Number" + " "  + Attempt + " " + "Attempt" + "<br>"
+      console.log("U are guessed" + Attempt + "Attempt")
+  }
+
+
+  else if(JSON.stringify(guessNumbers) === JSON.stringify(changeNumbers)) {
+    console.log(Attempt + " " + "Attempt")
+    document.getElementById("output").innerHTML += "U won a game" + " "  + Attempt + " " + "Attempt" + "<br>"
+    console.log("U won a game")
+
+  }
+
+  else{
+
+    for (i=0; i<randomNumbers.length; i++) {
+      if (randomNumbers[i] == guessNumbers[i]) {
+
+        if(bull.indexOf(randomNumbers[i]) == -1)
+          bull.push(randomNumbers[i])
+          console.log(bull)
+      }
+    }
+    console.log(bull)
+
+    cow = guessNumbers.filter((element) => randomNumbers.includes(element));
+    console.log(cow);
+    console.log(typeof cow);
+
+    console.log(bull.length + " " + "Bulls")
+    document.getElementById("bull").innerHTML += bull.length + " " + "Bulls" + "<br>"
+    console.log(cow.length-bull.length + " " + "Cows")
+    document.getElementById("cow").innerHTML += cow.length-bull.length + " " + "Cows" + "<br>"
+    console.log(Attempt + " " + "Attempt")
+    document.getElementById("output").innerHTML += guess + " "  + Attempt + " " + "Attempt" + "<br>"
+
+
+}
+
+}
+
+</script>
+
+</body>  
+
+</html>
