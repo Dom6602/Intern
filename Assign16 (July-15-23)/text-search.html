@@ -77,4 +77,126 @@
 
 
 
+<!-- <html>
+ <head>
+    <meta charset="UTF-8" />
+    <title>Text Finder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+<style>
+    * {
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+body {
+    height: 100vh;
+    width: 100vw; 
+    overflow: hidden;
+}
+.content {
+  width: 80%;
+  margin: 50px auto;
+}
+h1 {
+  text-align: center;
+}
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+  max-width: 320px;
+  height: 50vh;
+}
+input#keyword {
+  font-size: 18px;
+  padding: 10px 20px;
+  outline: 0;
+  border: 1px solid #0f62fe;
+  width: auto;
+}
+span.highlight {
+  color: red;
+  text-shadow: 0 1px 1px red;
+}
+
+
+</style>
+
+</head>
+  <body>
+    <div class="content">
+      <p>Fabulous Co-worker<br>
+        Kalam took great care of his colleagues. A co-worker had promised his kids that he
+        would take them to the science museum after returning from work, and obtained the
+        prior permission of Mr. Kalam to leave early. The colleague was so engrossed in his
+        work that it was well into the evening when he realised that he had made a promise to
+        his kids. On rushing back home, he came to know from his wife that Mr. Kalam had
+        come earlier and taken his kids to the museum.<br><br>
+        Great Human Being<br>
+        We were in a convoy of 6-7 cars. Dr. Kalam and I were in the second car. Ahead us was
+        an open gypsy with three soldiers in it. Two of them were sitting on either side and one
+        lean guy was standing atop, holding his gun. One hour into the road journey, Dr. Kalam
+        said, "Why is he standing? He will get tired. This is like punishment. Can you ask a
+        wireless message to given that he may sit?" I had to convince him, he has been
+        probably instructed to keep standing for better security. He did not relent. We tried
+        radio messaging, that did not work. For the next 1.5 hours of the journey, he reminded
+        me thrice to see if I can hand signal him to sit down. Finally, realizing there is little we
+        can do--he told me, "I want to meet him and thank him".
+        "Later, when we landed in IIM Shillong, I went inquiring through security people and
+        got hold of the standing guy. I took him inside and Dr. Kalam greeted him. He shook his
+        hand, said thank you buddy. "Are you tired? Would you like something to eat? I am
+        sorry you had to stand so long because of me". The young lean guard, draped in black
+        cloth, was surprised at the treatment. He lost words, just said, "Sir, aapke liye to 6
+        ghante bhi khade rahenge"</p>
+    </div>
+    <h1>Find the word in paragraph</h1>
+
+    <div class="form">
+      <input type="text" id="keyword" class="form_control" placeholder="Search...">
+    </div>
+    
+    <script> 
+            function textFind(keyword) {
+                if(keyword) {
+                var content = $("p").text();
+                console.log(content);
+                var searchText = new RegExp(keyword, "ig");
+                console.log(searchText);
+                var matches = content.match(searchText);
+                console.log(matches);
+  
+
+                if(matches) {
+                    $("p").html(content.replace(searchText, function(match){
+                    return "<span class='highlight'>"+match+"</span>";
+                    }));
+                }else {
+                    $('.highlight').removeClass('highlight');
+                }
+                }else{
+                $('.highlight').removeClass('highlight');
+                }
+            }
+            $(document).ready(function(){
+                $('#keyword').on('keyup', function(){
+                textFind($(this).val());
+                })
+      });
+    </script>
+
+  </body>
+
+  </html> -->
+
+
+
+
 
