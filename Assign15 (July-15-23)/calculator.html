@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Simple Calculator</title>
+
+  <style>
+
+    center {
+        margin-top: 50px;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    .calculator {
+      width: 200px;
+      padding: 20px;
+      background: gray;
+      border-radius: 5px;
+    }
+    
+    input {       
+    background: rgb(138, 242, 138);
+      text-align: center;            /* input[type="number"] { */
+      margin-bottom: 10px;
+      width: 100%;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 20%;
+      margin-bottom: 10px;
+      padding: 10px;
+      background: rgb(220, 93, 104);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #7d3cf5;
+    }
+    
+  </style>
+
+</head>
+
+<body>
+    <h2>Simple Calculator - Javascript: Events</h2>
+  <center>
+  <div class = "calculator">
+    <input type="number" id="value1" placeholder="1st value"/>
+    <input type="number" id="value2" placeholder="2nd value"/>
+    <button id="addition">+</button>
+    <button id="subtraction">-</button>
+    <button id="multiplication">*</button>
+    <button id="division">/</button>
+    <h1 id="result">Result:</h1>
+  </div>
+  </center>
+
+
+  <script>
+
+    // DOMContentLoaded
+    // Code to be executed when the DOM content is loaded
+    // You can access and manipulate HTML elements here
+
+    document.addEventListener("DOMContentLoaded" , function() {
+      // Get input fields and result element
+      var value1Input = document.getElementById("value1");
+      var value2Input = document.getElementById("value2");
+      var additionButton = document.getElementById("addition");
+      var subtractionButton = document.getElementById("subtraction");
+      var multiplicationButton = document.getElementById("multiplication");
+      var divisionButton = document.getElementById("division");
+      var resultElement = document.getElementById("result");
+
+      // addition event listeners to the buttons
+      //element.addEventListener(event, listener);
+
+    additionButton.addEventListener("click", function() {
+    var value1 = Number(value1Input.value);
+    var value2 = Number(value2Input.value);
+    var result = value1 + value2;
+    resultElement.innerText = "Result: " + result;
+    });
+
+    subtractionButton.addEventListener("click", function() {
+    var value1 = Number(value1Input.value);
+    var value2 = Number(value2Input.value);
+    var result = value1 - value2;
+    resultElement.innerText = "Result: " + result;
+    });
+
+    multiplicationButton.addEventListener("click", function() {
+    var value1 = Number(value1Input.value);
+    var value2 = Number(value2Input.value);
+    var result = value1 * value2;
+    resultElement.innerText = "Result: " + result;
+    });
+
+    divisionButton.addEventListener("click", function() {
+    var value1 = Number(value1Input.value);
+    var value2 = Number(value2Input.value);
+    var result = value1 / value2;
+    resultElement.innerText = "Result: " + result;
+    });
+    
+    });
+  </script>
+
+
+
+</body>
+</html>
