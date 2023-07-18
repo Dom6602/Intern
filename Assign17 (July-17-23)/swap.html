@@ -1,0 +1,79 @@
+<!-- Write a program that takes your name as input and swaps the first two letters while
+the third letter remains the same. Repeat this process until you reach the end of your
+name.
+e.g., “JOSEPH” is the input given to the function
+Expected Output is “OJSPEH”. -->
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Swap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <!-- <script src="></script> -->
+  
+    <style>
+
+        .center {
+            text-align: center;
+        }
+
+        input {
+            text-align: center; 
+            margin-bottom: 10px;
+            height: 30px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div class="center">
+        <h1>Swap Name</h1>
+            <div>
+                <input type="text" id="name" placeholder="Enter Name" required/>
+            </div>
+        <button onclick="swap()">click!</button>
+        <h2 id="op"></h2>
+    </div>
+
+    <script>
+
+        const swap = () => {
+            let nameSwap = document.getElementById("name").value
+            console.log(nameSwap);
+
+            arrayConvert = nameSwap.split("")
+            console.log(arrayConvert.length);
+
+            temp = []
+
+            //SET HUP ATH I 
+            for (let i = 0; i < arrayConvert.length; i += 3) {
+                if (i + 2 < arrayConvert.length) {
+                    temp.push(arrayConvert[i + 1], arrayConvert[i], arrayConvert[i + 2]);
+                } else if (i + 1 < arrayConvert.length) {
+                    temp.push(arrayConvert[i + 1], arrayConvert[i]);
+                } else {
+                    temp.push(arrayConvert[i]);
+                }
+                }
+
+            console.log(temp)
+
+            final = temp.join("")
+            document.getElementById("op").innerHTML = "Before:" + nameSwap + "<br>" + "After:" + final
+
+        }
+    
+    </script>
+
+</body>
+
+</html>

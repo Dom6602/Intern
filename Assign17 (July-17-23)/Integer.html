@@ -1,0 +1,74 @@
+<!-- Write a function that accepts two input values and performs all modulus, division, and
+multiplication. Allow strings to be accepted, but the operations should not be
+performed; instead, throw an alert saying “Only Integer values are accepted”. -->
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Integer Input</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <!-- <script src="></script> -->
+  
+    <style>
+
+        .center {
+            text-align: center;
+        }
+
+        input {
+            text-align: center; 
+            margin-bottom: 10px;
+            height: 30px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div class="center">
+        <h1>Integer Check & perform calculations</h1>
+            <div>
+                <input id="value1" placeholder="Enter Value1"/>
+                <input id="value2" placeholder="Enter value2"/>
+            </div>
+        <button onclick="calculate()">Calculate!</button>
+        <h2 id="op"></h2>
+    </div>
+
+
+    <script>
+
+        const calculate = () => {
+            let value1 = document.getElementById("value1").value
+            let value2 = document.getElementById("value2").value
+
+            num1 = parseInt(value1)
+            // console.log(num1);
+            // console.log(typeof num1);
+            num2 = parseInt(value2)
+
+            if (!isNaN(num1) && !isNaN(num2)) {
+                modulus = value1 % value2
+                division = value1 / value2
+                multiplication = value1 * value2
+
+                document.getElementById("op").innerHTML = "Modulus:" + modulus + "<br>" + "Division:" + division + "<br>" + "Multiplication:" + multiplication
+
+            }
+            else{
+                alert('Only Integer values are accepted')
+
+            }
+
+        }
+    
+    </script>
+
+</body>
+
+</html>
