@@ -1,0 +1,78 @@
+<!-- Write a JavaScript function to parameterize a string.
+Eg:- console.log(string_parameterize("Jose from INDIA."));
+"jose-from-india" -->
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <!-- <script src="></script> -->
+  
+    <style>
+
+        .center {
+            text-align: center;
+        }
+
+        input {
+            text-align: center; 
+            margin-bottom: 10px;
+            height: 30px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div class="center">
+        <h1> truncate a string if it is longer than the specified number
+            of characters</h1>
+            <div>
+                <input id="input" placeholder="Enter Input"/>
+                <input id="number" placeholder="Enter Number"/>
+                <input id="symbol" placeholder="Enter symbol"/>
+
+            </div>
+        <button onclick="input()">check!</button>
+        <h2 id="op"></h2>
+    </div>
+
+
+    <script>
+
+        const input = () => {
+
+            let input = document.getElementById("input").value
+            let number = Number(document.getElementById("number").value)
+            let symbol = document.getElementById("symbol").value
+
+
+            console.log(number == "");
+
+            if (number == "" && symbol == "") {
+                subStr = input
+            }
+            else if (number != "" && symbol == "") {
+                subStr = input.substr(0, number) + "..."
+
+            }
+            else {
+                subStr = input.substr(0, number) + symbol
+   
+            }
+
+            document.getElementById("op").innerHTML = subStr
+
+        }
+    
+    </script>
+
+</body>
+
+</html>
