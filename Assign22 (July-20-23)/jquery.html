@@ -1,0 +1,79 @@
+<!-- Make use of the below-mentioned JS Libraries and create an application showcasing
+their usage.
+            - JQuery  -->
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>JQuery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <!-- <script src="></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  
+    <style>
+
+        .center {
+            text-align: center;
+        }
+
+        input {
+            text-align: center; 
+            margin-bottom: 10px;
+            height: 30px;
+        }
+
+        table {
+            border: 1px;
+            border-style: double;
+            border-radius: 10px;
+            border-collapse: collapse;
+        }
+
+        th {
+            padding: 10px;
+            border: 1px solid black;
+            background-color: lightgray;
+        }
+
+    </style>
+
+
+    <script>
+        $(document).ready(function(){
+        $("#hide").click(function(){
+            $("p").hide();
+        });
+        });
+
+        $(document).ready(function(){
+        $("#color").click(function(){
+            $("p").css("color", "red");
+        });
+        });
+
+    </script>
+
+</head>
+
+<body>
+    <div class="center">
+        <h1> JQuery </h1>
+
+        <center>
+            <div style="margin-top: 25px;">
+                <p> Paragraph Hide </p>
+            </div>
+        </center>
+
+        <button id="hide">Hide!</button>
+        <button id="color">Color!</button>
+
+    </div>
+
+</body>
+
+</html>

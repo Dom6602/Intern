@@ -1,0 +1,246 @@
+<!-- Write a program that reads the data from a JSON and prints the data in a tabular format pretty
+printed to the user in the UI. -->
+
+1. Create a blank HTML Page with bootstrap utility
+2. Create a blank JS file
+3. Create a blank CSS file
+4. HTML page a table with a header pre-defined
+5. Table -> in the body -> i need to append the JSON data
+6. For the table body -> I can add a ID -> and control it with JS
+In the JS part ========================================
+7. Define the variable that holds all the data
+8. I need to first read the ID of the table body
+9. I will create a simple function that will take an object with defined keys 
+10. That function should return me a table row with what every values is being passed
+11. The function now should be adjusyted to read array of objects and return me the table rows
+12. I initiate a promise that will call this function that has been defined above
+13. The result retured by my promise will be appended to the table body using  the ID that has been deinfed earlier.
+
+Name | Age | Employee Code
+Arun | 28  | 0606
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Promises and Callbacks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <!-- <script src="></script> -->
+  
+    <style>
+
+        .center {
+            text-align: center;
+        }
+
+        input {
+            text-align: center; 
+            margin-bottom: 10px;
+            height: 30px;
+        }
+
+        table {
+            border: 1px;
+            border-style: double;
+            border-radius: 10px;
+            border-collapse: collapse;
+        }
+
+        th {
+            padding: 10px;
+            border: 1px solid black;
+            background-color: lightgray;
+}
+
+    </style>
+
+</head>
+
+<body>
+    <div class="center">
+        <h1> Reads the data from a JSON and prints the data in a tabular format</h1>
+        <button onclick="print()">Print!</button>
+        <!-- <p id="op"></p> -->
+
+        <center>
+        <div style="margin-top: 25px;">
+            <table>
+                <tr>
+                    <th>UserId</th>
+                    <th>Job Title</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Employee Code</th>
+                    <th>Region</th>
+                    <th>Phone Number</th>
+                    <th>Email Address</th>
+                </tr>
+                <tbody id="table-body"></tbody>
+            </table>
+        </div>
+        </center>
+
+    </div>
+
+
+    <script>
+
+        const print = () => {
+
+            // fetch('data.json').then(
+            //     response => response.json())
+            //     .then(data => {
+            //         // 'data' variable will hold the JSON data from the file
+            //         console.log(data);
+            //     })
+            //     .catch(error => console.error('Error fetching JSON:', error));
+            //         }
+
+
+            // fetch('data.json')
+            //     .then((response) => response.json())
+            //     .then((json) => console.log(json));
+            //             }
+    
+
+        const promise = new Promise((resolve, reject) => {
+
+            let data = {
+                "Employees": [
+                {
+                "userId": "krish",
+                "jobTitle": "Developer",
+                "firstName": "Krish",
+                "lastName": "Lee",
+                "employeeCode": "E1",
+                "region": "CA",
+                "phoneNumber": "123456",
+                "emailAddress": "krish.lee@learningcontainer.com"
+                },
+                {
+                "userId": "devid",
+                "jobTitle": "Developer",
+                "firstName": "Devid",
+                "lastName": "Rome",
+                "employeeCode": "E2",
+                "region": "CA",
+                "phoneNumber": "1111111",
+                "emailAddress": "devid.rome@learningcontainer.com"
+                }]
+            };
+
+        console.log(data);
+        console.log(typeof data);
+
+
+        let employeesArray  = data.Employees
+
+
+
+        // document.getElementById('op').textContent = employeesArray;
+
+        console.log(employeesArray.length);
+
+
+        // for (let i = 0; i < employeesArray.length; i++) {
+        //     // console.log("Employee " + (i + 1) + ":");
+        //     console.log("UserId: " + employeesArray[i].userId);
+        //     console.log("Job Title: " + employeesArray[i].jobTitle);
+        //     console.log("FirstName: " + employeesArray[i].firstName);
+        //     console.log("lastName: " + employeesArray[i].lastName);
+        //     console.log("Employee Code: " + employeesArray[i].employeeCode);
+        //     console.log("Region: " + employeesArray[i].region);
+        //     console.log("Phone Number: " + employeesArray[i].phoneNumber);
+        //     console.log("Email Address: " + employeesArray[i].emailAddress);
+
+
+        //     id = "UserId: " + employeesArray[i].userId;
+        //     job = "Job Title: " + employeesArray[i].jobTitle;
+        //     fn = "FirstName: " + employeesArray[i].firstName;
+        //     ln = "lastName: " + employeesArray[i].lastName;
+        //     emId = "Employee Code: " + employeesArray[i].employeeCode;
+        //     rn = "Region: " + employeesArray[i].region;
+        //     ph = "Phone Number: " + employeesArray[i].phoneNumber;
+        //     email = "Email Address: " + employeesArray[i].emailAddress;
+            
+        
+        //     document.getElementById('op').textContent = id + job + fn + ln + emId + rn + ph + email
+
+        // }
+
+
+
+    let tableBody = document.getElementById('table-body');
+
+    if (data != null) {
+
+        for (let i = 0; i < employeesArray.length; i++) {
+
+            let employee = employeesArray[i];
+            console.log(employee);
+
+            let row = document.createElement('tr');
+
+            let userIdCell = document.createElement('td');
+            userIdCell.textContent = employee.userId;
+            row.appendChild(userIdCell);
+
+            let jobTitleCell = document.createElement('td');
+            jobTitleCell.textContent = employee.jobTitle;
+            row.appendChild(jobTitleCell);
+
+            let firstNameCell = document.createElement('td');
+            firstNameCell.textContent = employee.firstName;
+            row.appendChild(firstNameCell);
+
+            let lastNameCell = document.createElement('td');
+            lastNameCell.textContent = employee.lastName;
+            row.appendChild(lastNameCell);
+
+            let employeeCodeCell = document.createElement('td');
+            employeeCodeCell.textContent = employee.employeeCode;
+            row.appendChild(employeeCodeCell);
+
+            let regionCell = document.createElement('td');
+            regionCell.textContent = employee.region;
+            row.appendChild(regionCell);
+
+            let phoneNumberCell = document.createElement('td');
+            phoneNumberCell.textContent = employee.phoneNumber;
+            row.appendChild(phoneNumberCell);
+
+            let emailAddressCell = document.createElement('td');
+            emailAddressCell.textContent = employee.emailAddress;
+            row.appendChild(emailAddressCell);
+
+            tableBody.appendChild(row);
+            }
+
+        resolve()
+    }
+    else {
+        reject()
+    }
+
+    });
+
+
+    promise.
+        then(function () {
+            console.log('Data Successfully Added');
+        })
+        .
+        catch(function () {
+            console.log('Data is empty');
+        });
+
+        }
+    
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>  
+<head>   
+
+    <title> Tab Active </title>  
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/bootstrap.js"></script>
+
+    <style>
+
+        #position {
+        margin-top: 10px;
+        }
+
+        .nav-pills {
+        background-color: rgb(181, 173, 173); 
+        }
+
+        .nav-pills {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        }
+
+        .nav-pills li {
+        cursor: pointer;
+        }
+
+        .nav-pills li.active {
+        background-color: #c80b0b;
+        color: #10b62f;
+        }
+
+
+
+    </style>
+
+</head>  
+
+<body>  
+
+    <div id="position" class="nav justify-content-center">
+
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+        </ul>
+
+    </div>
+
+<script>
+
+    // Get the current URL
+    var currentURL = window.location.href;
+
+    // Remove the active class from all tabs
+    var tabs = document.querySelectorAll(".horizontal-tabs li");
+    tabs.forEach(function(tab) {
+    tab.classList.remove("active");
+    });
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body> 
+
+</html>  
