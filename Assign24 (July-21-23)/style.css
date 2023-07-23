@@ -1,0 +1,84 @@
+body {
+    /* background-color: gray; */
+    background-image: url("./wall.jpg");
+    background-repeat: repeat;
+    padding: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: rgba(215, 26, 26, 0.844);
+}
+
+#card {
+    border-radius: 20px 0px 10px 0px;
+    height: 150px;
+    width: 200px;
+    background-color: rgba(240, 248, 255, 0.296);
+    
+}
+
+/* #card:nth-child(odd) {
+background: rgba(255, 0, 0, 0.166);
+}
+
+#card:nth-child(even) {
+background: rgba(0, 200, 255, 0.314);
+} */
+
+.card-body {
+    display: grid;
+    justify-content: center;
+}
+
+#data {
+    border: none;
+    resize: none;
+    overflow: hidden
+}
+
+button {
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    border: 3px solid rgb(71, 35, 234);
+    background-color: rgba(0, 255, 255, 0.508);
+    font-weight: bolder;
+    font-size: small;
+    margin-bottom: 10px;
+    /* position: absolute;
+    right:    0;
+    bottom:   0; */
+}
+
+
+#add {
+    /* height: 900px;
+    align-items: center;
+    background-color: #8b2323; */
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    /* grid-template-columns:auto auto auto auto auto; */
+}
+
+.input {
+    height: 70px;
+    border: 7px solid rgb(199, 28, 28) ;
+    background-color: rgba(240, 248, 255, 0.296);
+
+}
+
+.action {
+    display: flex;
+    justify-content: space-around;
+    /* align-items: center;   height set must
+    /* background-color: brown; */
+
+}
+
+.acbtn {
+    width: 70px;
+
+}
