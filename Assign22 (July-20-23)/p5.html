@@ -1,0 +1,59 @@
+<!-- Make use of the below-mentioned JS Libraries and create an application showcasing
+their usage.
+        - p5js -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>P5.js</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+
+    <style>
+        .center {
+            text-align: center;
+        }
+        body {
+            /* Hide the default cursor */
+            cursor: none;
+        }
+    </style>
+
+    <script>
+        let customCursor;
+
+        function preload() {
+            // Load your custom cursor image
+            customCursor = loadImage('cropped.jpg');
+        }
+
+        function setup() {
+            // Create canvas
+            createCanvas(400, 400);
+
+            // Set the text size
+            textSize(40);
+
+            // Set the text alignment to center
+            textAlign(CENTER);
+        }
+
+        function draw() {
+            background(220);
+            // Draw your custom cursor at the current mouse position
+            image(customCursor, mouseX, mouseY, 10, 10);
+            // Add your drawing and text elements here
+            // text("Hello World using p5.js", width / 2, height / 2);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="center">
+        <h1>P5.js</h1>
+    </div>
+</body>
+
+</html>

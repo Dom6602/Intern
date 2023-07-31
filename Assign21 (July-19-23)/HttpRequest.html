@@ -1,0 +1,121 @@
+<!-- Create an HTTP request to the following URL 
+https://data.covid19india.org/state_district_wise.json using XMLHTTPRequest() 
+and pretty-print the result. -->
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Promises and Callbacks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <!-- <script src="></script> -->
+  
+    <style>
+
+        .center {
+            text-align: center;
+        }
+
+        input {
+            text-align: center; 
+            margin-bottom: 10px;
+            height: 30px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div class="center">
+        <h1> Create an HTTP request to the following URL
+            https://data.covid19india.org/state_district_wise.json 
+            using XMLHTTPRequest() and pretty-print the result.
+            </h1>
+        <button onclick="print()">Print!</button>
+    </div>
+
+    <pre id="output"></pre>
+
+    <script>
+
+        const print = () => {
+
+            const url = 'https://data.covid19india.org/state_district_wise.json';
+
+            const xhr = new XMLHttpRequest();
+
+            xhr.open('GET', url);
+
+            xhr.send();
+
+            xhr.responseType = 'json';
+
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                const data = xhr.response;
+                const prettyPrintedData = JSON.stringify(data, null, 2);
+                document.getElementById('output').textContent = prettyPrintedData;
+                } else {
+                document.getElementById('output').textContent = 'Error fetching data.';
+                }
+            };
+
+            xhr.onerror = function() {
+                document.getElementById('output').textContent = 'Error fetching data.';
+            };
+
+        }
+
+
+//         The <pre> tag is used in the provided code to preserve the formatting of the JSON data when displaying it on the webpage. The <pre> tag stands for "preformatted text" and is designed to display text exactly as it is, with whitespace and line breaks preserved.
+
+// When working with JSON data, using the <pre> tag allows you to present the data in a readable and well-structured format, especially when the JSON data is pretty-printed with indentation. Without the <pre> tag, the JSON data would be displayed as a single line without any formatting, making it hard to read and understand.
+
+
+            /*const print = () => {
+
+            const dataElement = document.querySelector('posts');
+
+            const xhr = new XMLHttpRequest()
+
+            xhr.open('GET', 'https://data.covid19india.org/state_district_wise.json')
+
+            xhr.responseType = "json" //or use json.parse
+
+            xhr.onload = function() {
+                //  console.log(xhr.response)
+                // const listOfData = xhr.response
+                // const listOfData = JSON.parse(xhr.response)
+                listOfData = xhr.response
+                console.log(listOfData);
+                console.log(typeof listOfData);
+
+
+                // Using JSON.parse() to Parse a JSON String into an Array:
+                // If you have a JSON string (not a JSON object), you can use JSON.parse() to convert it into an array.
+
+
+                jsonArray = Object.entries(listOfData).map(([key, value]) => ({ key, value }));
+
+                console.log(jsonArray);
+
+
+                for(const post of jsonArray) {
+                    const paragraphElement = document.createElement('p')
+                    paragraphElement.textContent = JSON.stringify(post);
+                    dataElement.appendChild(paragraphElement);
+                }
+
+            };
+
+            xhr.send()      */
+
+    </script>
+
+</body>
+
+</html>

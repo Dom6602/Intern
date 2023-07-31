@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Card</title>
+</head>
+<style>
+        h1 {
+                text-align: center;
+            }
+    
+        #container {
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+        }
+    
+        #form_design {
+            padding: 16px;
+            border-style: solid;
+            border-radius: 20px;
+            border-color: gray;
+            border-width: 4px 2px 4px 2px;
+        }
+    
+        input {
+            width: 85%;
+            height: 5px;
+            padding: 15px;
+            margin-top: 5px;
+            margin-left: 8px;
+        }
+    
+        .form-group {
+            margin-bottom: 10px;
+        }
+    
+        #btn {
+            border-radius: 10px;
+            text-align: center;
+            width: 98%;
+            height: 30px;
+            background-color: #04AA6D;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        textarea {
+            resize: none;
+            width: 90%;
+            margin-left: 10px;
+        }
+        #imageInput {
+            margin-left: 1px;
+        }
+
+</style>
+    
+</head> 
+
+<body>  
+    
+        <div id = "container">
+    
+            <div id ="form_design">
+    
+                <h1 style="margin-top:5px;">Add Card</h1>
+    
+                <form id="loginForm">     
+                    
+                    <div class="form-group">
+                        <label for="name"><b>Name</b></label>         
+                        <input type="text" placeholder="Enter Name" id="name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="price"><b>Price</b></label>         
+                        <input type="text" placeholder="Enter Price" id="price" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="desc"><b>Description</b></label>         
+                        <textarea cols="50" rows="5" id="desc" required /></textarea>
+                    </div>
+                    <input type="file" id="imageInput" multiple name="images[]">
+                    <div class="form-group">
+                        <button type="submit" id="btn" onclick="addCard()">Add</button>  
+                    </div>
+    
+                </form> 
+            
+            </div>
+    
+        </div>
+
+        <div id="test">
+
+        </div>
+    
+    <script> 
+
+        function addCard() {
+
+            const name = document.getElementById('name').value;
+            const price = document.getElementById('price').value;
+            const desc = document.getElementById('desc').value;
+            const image = document.getElementById('imageInput');
+
+            console.log(image.files[0]);
+            event.preventDefault()
+            const file = image.files[0];
+            const reader = new FileReader();
+
+            reader.onloadend = function () {
+                const base64String = reader.result.replace(/^data:image\/[a-z]+;base64,/, '');
+                // console.log(reader);
+                outsideScope(base64String, name, price, desc)
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+
+                    function outsideScope(base64String, name, price, desc) {
+
+                        const newData = {
+                                        Image: base64String,
+                                        Name: name,
+                                        Price: price,
+                                        Description: desc     
+                        }
+
+                        const firebaseDatabaseURL = 'https://darkworld-24142-default-rtdb.firebaseio.com/';
+
+                        fetch(`${firebaseDatabaseURL}test1.json`, {
+                        method: 'POST',
+                        body: JSON.stringify(newData),
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        })
+
+                        // fetch(`${firebaseDatabaseURL}test1.json`, {
+                        //     method: 'GET'
+                        // })
+                        // .then(response => {
+                        //     if (!response.ok) {
+                        //     throw new Error('Failed to read data');
+                        //     }
+                        //     return response.json();
+                        // })
+                        // .then(data => {
+                        //     console.log(data);
+                        //     console.log(typeof data);
+
+                        //     let keys = Object.keys(data)
+                        //     let values = Object.values(data)
+
+                        //     console.log(keys)
+                        //     console.log(values)
+
+                        //     values.map((list, index) => {
+                        //     console.log(list, index);
+                        //     finalKey = Object.keys(list)
+                        //     finalValues = Object.values(list)
+                        //     console.log(finalKey);
+                        //     console.log(finalValues)
+
+
+                        //     document.getElementById("test").innerHTML += `
+                        //     <div class="card mb-5 ml-3 mr-3">
+                        //         <div class="card-body">
+                        //             <img id="cardImg" src="data:image/jpeg;base64,${finalValues[1]}">
+                        //             <h5 class="card-title" style="text-align:center">${finalValues[2]}</h5>
+                        //             <h5 class="card-title" style="text-align:center">${finalValues[3]}</h5>
+                        //             <p class="card-text" style="text-align:center">${finalValues[0]}</p> 
+                        //             <div id="center">
+                        //                 <a href="#" class="btn btn-primary">Buy Now</a>
+                        //                 <a href="#" class="btn btn-primary">Add to Cart</a>
+                        //             </div>
+                        //         </div>
+                        //     </div>
+                        //     `
+                            
+                        //     })
+
+
+                        // })
+
+
+
+                        }
+
+ 
+                    }
+        
+
+                }
+
+
+    </script>
+</body>
+</html>

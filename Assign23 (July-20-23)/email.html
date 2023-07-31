@@ -1,0 +1,145 @@
+<!-- Write a program to match email address patterns?
+The personal information part contains the following ASCII characters.
+Uppercase (A-Z) and lowercase (a-z) English letters.
+Digits (0-9).
+Characters ! # $ % & ' * + - / = ? ^ _ ` { | } ~
+Character (Period or comma) provided that it is not the first or last character and it will
+not come one after the other  -->
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <!-- <script src="></script> -->
+  
+    <style>
+
+        .center {
+            text-align: center;
+        }
+
+        input {
+            text-align: center; 
+            margin-bottom: 10px;
+            height: 30px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div class="center">
+        <h1> match email address patterns</h1>
+        <h2>If the email is correct pattern not shown any error else shown error</h2>
+            <div>
+                <input type="text" id="input" placeholder="Enter Input" required/>
+            </div>
+        <button onclick="check()">check!</button>
+        <h2 id="op"></h2>
+    </div>
+
+
+    <script>
+
+        const check = () => {       
+
+            let input = document.getElementById("input").value
+            console.log(input);
+
+
+            pattern = /[A-Za-z0-9s!#$%&'*+-/=?^_`{|}~,.]/
+
+            split = input.split("@")
+            console.log(split)
+
+            temp = split[0]
+            temp1 = temp[split[0].length-1]
+
+
+            if (input[0] == "," || temp1 == "," || input[0] == "." || temp1 == ".") {
+
+                console.log("not a valid email address");
+                document.getElementById("op").innerHTML = "not a valid email address"
+            }
+
+            else if(pattern.test(split)) {
+                for( i=0; i<split[0].length-1; i++ ) {
+
+                    temp[i] === temp[i+1]
+                    console.log(temp[i] === temp[i+1]);
+                    console.log(temp[i]);
+                    console.log(temp[i+1]);
+
+                    if((temp[i] === "," && temp[i+1] === ",")  || (temp[i] === "." && temp[i+1] === ".")) {
+                        console.log("not a valid email address");
+                        document.getElementById("op").innerHTML = "not a valid email address"
+                        break;
+                    }
+                }
+            }
+            setTimeout(() => {
+                location.reload();
+            }, 1000);
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

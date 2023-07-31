@@ -1,0 +1,68 @@
+.navbar {
+    background-color: rgb(147, 145, 145) !important;
+    height: 80px;
+    display: flex;
+    flex-wrap: nowrap !important;
+} 
+
+.navbar-brand {
+    display: flex !important;
+    align-items: end;
+    width: 40%;
+}
+
+#icon-text {
+    font-size:20px;
+    color: rgb(201, 38, 38);
+    font-weight: bold;
+    margin-top: 25px;
+
+}
+
+.btn {
+    background-color: rgb(245, 220, 128) !important;
+    margin-left: 5px;
+    height: 38px;
+}
+
+.btn:hover {
+    color: rgb(244, 20, 199) !important;
+}
+
+#ip_center {
+    display: flex;
+    width: 100%;
+    justify-content:flex-end;
+    margin-top: 10px;
+}
+
+#login_center {
+    display: flex;
+}
+
+.form-control {
+    border-radius: 4px 4px 4px 4px !important;
+}
+
+.btn {
+    border-radius: 4px 4px 4px 4px !important;
+}
+
+#container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap:wrap;
+    margin-top: 30px;
+  }
+
+  #center {
+    display: flex;
+    justify-content: center;
+  }
+
+  #cardImg {
+    width: 100%;
+    height: 300;
+    flex-wrap: wrap;
+  }
+

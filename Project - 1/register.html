@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>  
+<head>   
+<title> Registration Page </title>  
+
+<style>
+
+    h1 {
+        text-align: center;
+    }
+
+    #container {
+        display: flex;
+        justify-content: center;
+    }
+
+    #form {
+        padding: 16px;
+        border-style: solid;
+        border-radius: 20px;
+        border-color: gray;
+        border-width: 4px 2px 4px 2px;
+    }
+    
+    hr {
+    border: 1px solid #dddbdb;
+    margin-bottom: 25px;
+    }
+
+    input {
+        width: 90%;
+        height: 5px;
+        padding: 15px;
+        margin-top: 5px;
+        margin-left: 8px;
+    }
+
+    #countrycode {
+    width: 25px;
+    }
+
+    /* .form-group {
+        margin-bottom: 10px;
+    } */
+
+    #btn {
+        border-radius: 10px;
+        text-align: center;
+        width: 100px;
+        height: 30px;
+        background-color: #04AA6D;
+        color: white;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        margin: 20px 7px;
+    }
+    
+    textarea {
+        resize: none;
+    }
+
+</style>
+
+</head>  
+
+<body>  
+
+    <div id = "container">
+
+        <div id ="form">
+
+            <h1 style="margin-top:5px;">Register</h1>
+            <p>Please fill in this form to create an account.</p>
+
+            <hr>
+
+            <form>     
+                
+                <div class="form-group"> 
+                    <label for="firstname"><b>Firstname</b></label>         
+                    <input type="text" placeholder="Enter Firstname" id="firstname" required /> 
+                </div>
+                <div class="form-group">
+                    <label for="lastname"><b>Lastname</b></label>         
+                    <input type="text" placeholder="Enter Lastname" id="lastname" required /> 
+                </div>
+                <div class="form-group">
+                    <label for="phone"><b>Phone</b></label>  
+
+                    <div style="display: flex;">
+                        <input type="text" id="countrycode"  value="+91"/>          
+                        <input type="number" placeholder="Enter PhoneNo" id="phone" maxlength="10" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address"><b>Address</b></label>
+                    <div style="margin-left: 10px;">
+                        <textarea cols="50" rows="5" id="address" required /></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email"><b>Email</b></label>         
+                    <input type="email" placeholder="Enter Email" id="email" required />
+                </div>
+                <div class="form-group">
+                    <label for="password"><b>Password</b></label>         
+                    <input type="Password" placeholder="Enter Password" id="password" required />
+                </div>
+                <div class="form-group">
+                    <label for="password"><b>Re-type Password</b></label>         
+                    <input type="password" placeholder="Re-Enter Password" id="repassword" required />
+                </div>
+                <div class="form-group">
+                    <button type="submit" id="btn" onclick="button()">Register</button>  
+                </div>
+
+            </form> 
+        
+        </div>
+
+    </div>
+
+    <script>
+
+        function button() {
+
+        // Get form data
+        const fn = document.getElementById('firstname').value;
+        const ln = document.getElementById('lastname').value;
+        const cc = document.getElementById('countrycode').value;
+        const ph = document.getElementById('phone').value;
+        const add = document.getElementById('address').value;
+        const em = document.getElementById('email').value;
+        const pass = document.getElementById('password').value;
+
+
+        function read() {
+
+            const firebaseURL_GET = `https://darkworld-24142-default-rtdb.firebaseio.com/users.json`;
+            
+            fetch(firebaseURL_GET, {
+            method: 'GET'
+            })
+
+            .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to read data');
+            }
+            return response.json();
+            })
+
+            .then(data => {
+            console.log(data)
+            
+            if(data){
+
+            let object = Object.keys(data)
+            console.log(object)
+
+            for (let index = 0; index < object.length; index++) {
+                
+                const user = data[object[index]];
+
+                if (user.email === em) {
+                    console.log('User Already Exit, Please Login!');
+                    alert('User Already Exit, Please Login!')
+                    break
+
+                }
+
+                else {
+                // console.log(object.length,index);
+                    if(object.length-1 === index){
+
+                    const newData = {
+                        First_Name: fn,
+                        Last_Nmae: ln,
+                        Country_Code: cc,
+                        Phone_No: ph,
+                        Address: add,
+                        email: em,
+                        password: pass
+                        };
+
+                    function post() {
+                        let firebaseURL = `https://darkworld-24142-default-rtdb.firebaseio.com/users.json`;
+                        fetch(firebaseURL, {
+                            method: 'POST',
+                            body: JSON.stringify(newData)
+                        })
+                        alert('Account Created Successfully!')
+                        // console.log(JSON.stringify(newData));
+                        // console.log(typeof JSON.stringify(newData)); 
+                    }
+
+                    post()
+                    }
+                }
+            }
+           }
+            else {
+                const newData = {
+                        First_Name: fn,
+                        Last_Nmae: ln,
+                        Country_Code: cc,
+                        Phone_No: ph,
+                        Address: add,
+                        email: em,
+                        password: pass
+                        };
+
+                    function post() {
+                        let firebaseURL = `https://darkworld-24142-default-rtdb.firebaseio.com/users.json`;
+                        fetch(firebaseURL, {
+                            method: 'POST',
+                            body: JSON.stringify(newData)
+                        })
+                        alert('Account Created Successfully!')
+                        // console.log(JSON.stringify(newData));
+                        // console.log(typeof JSON.stringify(newData)); 
+                    }
+
+                    post()
+            }
+
+            })
+
+            .catch(error => {
+            console.log(error);
+            })
+
+        }
+
+        read();
+
+        event.preventDefault()
+
+    }
+
+    </script>
+
+</body> 
+
+</html>  
