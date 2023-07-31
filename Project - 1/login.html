@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>  
+<head>   
+<title> Registration Page </title>  
+
+<style>
+
+    h1 {
+        text-align: center;
+        }
+
+    #container {
+        display: flex;
+        justify-content: center;
+        margin-top: 100px;
+    }
+
+    #form_design {
+        padding: 16px;
+        border-style: solid;
+        border-radius: 20px;
+        border-color: gray;
+        border-width: 4px 2px 4px 2px;
+    }
+
+    input {
+        width: 85%;
+        height: 5px;
+        padding: 15px;
+        margin-top: 5px;
+        margin-left: 8px;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    #btn {
+        border-radius: 10px;
+        text-align: center;
+        width: 98%;
+        height: 30px;
+        background-color: #04AA6D;
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+</style>
+
+</head>  
+
+<body>  
+
+    <div id = "container">
+
+        <div id ="form_design">
+
+            <h1 style="margin-top:5px;">Login</h1>
+
+            <form id="loginForm">     
+                
+                <div class="form-group">
+                    <label for="email"><b>Email</b></label>         
+                    <input type="email" placeholder="Enter Email" id="email" required />
+                </div>
+                <div class="form-group">
+                    <label for="password"><b>Password</b></label>         
+                    <input type="Password" placeholder="Enter Password" id="password" required />
+                </div>
+                <div class="form-group">
+                    <button type="submit" id="btn" onclick="botton()">Login</button>  
+                </div>
+                <div>
+                    <a style="text-decoration: none; margin-left: 10px;" href="./forget.html" id="forget_btn">Forget Password?</a>
+                    <span style="margin-left: 50px;">Not a Member? <a href="./register.html" id="signup_btn" style="color: gray;">Register</a></span>
+                </div>
+
+
+            </form> 
+        
+        </div>
+
+    </div>
+
+
+<script>
+
+      function botton() {
+
+          // Get form data
+          const em = document.getElementById('email').value;
+          const pass = document.getElementById('password').value;
+
+          function read() {
+              const firebaseURL_GET = `https://darkworld-24142-default-rtdb.firebaseio.com/users.json`;
+              
+              fetch(firebaseURL_GET, {
+                method: 'GET'
+              })
+
+              .then(response => {
+                if (!response.ok) {
+                  throw new Error('Failed to read data');
+                }
+                return response.json();
+              })
+
+              .then(data => {
+                console.log(data)
+
+              if(data){
+
+                let object = Object.keys(data)
+                console.log(object)
+
+                for (let index = 0; index < object.length; index++) {
+                
+                  const user = data[object[index]];
+
+                  if (user.email === em) {
+                      console.log('Login Successful');
+                      alert('Login Successful')
+
+
+                      function session() {
+
+                          const session = {
+                                      Email: em,
+                                      Password: pass,
+                                  }
+
+                          const firebaseURL = `https://darkworld-24142-default-rtdb.firebaseio.com/session.json`;
+                          fetch(firebaseURL, {
+                              method: 'POST',
+                              body: JSON.stringify(session)
+                          })
+                          alert('Session Added Successfully!')
+
+                                const firebaseURL_GET = `https://darkworld-24142-default-rtdb.firebaseio.com/session.json`;
+              
+                                fetch(firebaseURL_GET, {
+                                  method: 'GET'
+                                })
+
+                                .then(response1 => {
+                                  if (!response1.ok) {
+                                    throw new Error('Failed to read data');
+                                  }
+                                  return response1.json();
+                                })
+
+                                .then(data1 => {
+                                  console.log(data1)
+
+                                  let object = Object.keys(data1)
+                                  console.log(object)
+
+                                  for (let index = 0; index < object.length; index++) {
+                                  
+                                    const user1 = data1[object[index]];
+
+                                    if (user1.Email === em) {
+                                        console.log('Already Logged');
+                                        alert('Already Logged')
+                                    }
+                                    else {
+                                      alert('Go to Register')
+                                    }
+                                  }
+                                })
+                      }
+
+                      session()
+
+                      break
+
+                  }
+
+                  else {
+                  // console.log(object.length,index);
+                      if(object.length-1 === index){
+                        console.log('Invalid Username or Password!');
+                        alert('Invalid Username or Password!')
+                      }
+                  }
+                }
+              }
+              else {
+                console.log('Go to Create Account');
+                alert('Go to Create Account')
+              }
+
+
+              })
+
+              .catch(error => {
+                console.log(error);
+              });
+
+          }
+
+          read();
+
+          event.preventDefault()
+
+          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//     // -------------------------------GET------------------------------------
+
+// // Read - GET request
+
+// function read() {
+//   const promise = new Promise((resolve, reject) => {
+//     const firebaseURL_GET = `https://darkworld-24142-default-rtdb.firebaseio.com/login.json`;
+//     fetch(firebaseURL_GET, {
+//       method: 'GET'
+//     })
+//     .then(response => {
+//       if (!response.ok) {
+//         throw new Error('Failed to read data');
+//       }
+//       return response.json();
+//     })
+//     .then(data => {
+//       resolve(data);
+//     })
+//     .catch(error => {
+//       reject(error);
+//     });
+//   });
+
+//   promise
+//     .then(data => {
+//       console.log('Data Available:', data);
+//     })
+
+// }
+
+
+
+
+// read();
+
+
+
+    // -------------------------------UPDATE------------------------------------
+
+// Update/Edit - PATCH request
+/*
+function update(dataId, updateData) {
+
+  const updateURL = `https://darkworld-24142-default-rtdb.firebaseio.com/login/${dataId}`;
+  const promise = new Promise((resolve, reject) => {
+    fetch(updateURL, {
+      // headers: {
+      //   "Access-Control-Allow": "*",
+      // },
+      method: 'PUT',
+      body: JSON.stringify(updateData)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to update data');
+      }
+      return response;
+    })
+    .then(data => resolve(data))
+    .catch(error => reject(error))
+  });
+
+  promise
+    .then(update => console.log('Data Updated:', update))
+}
+
+const dataId = '-NaGsW8lV-hgV0QwccHv';
+const updateData = { email: 'John', password: 35 };
+update(dataId, updateData);
+
+
+    // -------------------------------DELETE------------------------------------
+
+// DELETE request
+
+function deleteData(deleteId) {
+
+      const promise = new Promise((resolve, reject) => {
+
+      const deleteURL = `https://darkworld-24142-default-rtdb.firebaseio.com/login/${deleteId}`;
+      fetch(deleteURL, {
+          method: 'DELETE'
+      })
+      .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to read data');
+      }
+      return response.json();
+    })
+    .then(data => {
+      resolve(data);
+    })
+    .catch(error => {
+      reject(error);
+    });
+  })
+
+  promise
+    .then(data => {
+      console.log('Data Deleted:', data);
+    })
+
+}
+
+deleteId = '-NaGsW8lV-hgV0QwccHv';
+deleteData(deleteId);
+*/
+
+
+</script>
+
+
+</body> 
+
+</html>  
