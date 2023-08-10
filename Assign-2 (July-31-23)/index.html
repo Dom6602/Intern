@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text File Editor</title>
+</head>
+<body>
+  <h1>Text File Editor</h1>
+  <textarea id="textInput" rows="10" cols="50"></textarea>
+  <button id="appendButton">Append to File</button>
+  <button id="deleteButton">Delete File</button>
+  <button id="createButton">Create File</button>
+  <div id="fileContent"></div>
+  <script>
+    // JavaScript code to interact with the server and handle user interactions
+    const appendButton = document.getElementById('appendButton');
+    const deleteButton = document.getElementById('deleteButton');
+    const createButton = document.getElementById('createButton');
+    const textInput = document.getElementById('textInput');
+    const fileContentDiv = document.getElementById('fileContent');
+    function fetchFileContent() {
+      fetch('/read', { method: 'GET' })
+        .then(response => response.text())
+        .then(data => {
+          fileContentDiv.textContent = data;
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+        });
+    }
+    function appendToFile() {
+      const content = textInput.value;
+      fetch('/append', {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain' },
+        body: content,
+      })
+      .then(fetchFileContent)
+      .catch(error => {
+        console.error('Error appending data:', error);
+      });
+    }
+    function deleteFile() {
+      const filename = prompt('Enter the filename to delete:');
+      if (filename) {
+        fetch(`/delete/${filename}`, { method: 'DELETE' })
+          .then(fetchFileContent)
+          .catch(error => {
+            console.error('Error deleting file:', error);
+          });
+      }
+    }
+    function createFile() {
+      const filename = prompt('Enter the new filename:');
+      if (filename) {
+        fetch(`/create/${filename}`, { method: 'POST' })
+          .then(fetchFileContent)
+          .catch(error => {
+            console.error('Error creating file:', error);
+          });
+      }
+    }
+    appendButton.addEventListener('click', appendToFile);
+    deleteButton.addEventListener('click', deleteFile);
+    createButton.addEventListener('click', createFile);
+    fetchFileContent();
+  </script>
+</body>
+</html>
+
+
+
