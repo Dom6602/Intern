@@ -1,0 +1,73 @@
+mysql -u root -p
+
+CREATE SCHEMA IF NOT EXISTS student_management;
+
+create database student_management;
+
+show databases;
+
+use student_management;
+
+CREATE TABLE IF NOT EXISTS students_registration 
+
+CREATE TABLE table_name (
+    column1 datatype,
+    column2 datatype,
+    column3 datatype,
+   ....
+);
+
+CREATE TABLE Persons (
+    PersonID int,                           ID int NOT NULL UNIQUE,
+    LastName varchar(255),
+    FirstName varchar(255),
+    Address varchar(255),
+    City varchar(255)
+);
+
+create table students_registration(Id int primary key, Name varchar(30), Email varchar(20), Phone_no int(10), A
+ddress varchar(70), Department varchar(25));
+
+create table students_registration(Id int auto_increment, primary key(Id), Name varchar(30), Email varchar(20), Phone_no varchar(10), Address varchar(70), Department varchar(25));
+
+desc students_registration;
+
+drop table students_registration;
+
+show tables;
+
+insert into students_registration (Name, Email, Phone_no, Address, Department)
+values ('John Doe', 'john@example.com', 1234567890, '123 Main St', 'Computer Science'),
+        ('Jane Smith', 'jane@example.com', 9876543210, '456 Elm St', 'Engineering'),
+        ('Michael Johnson', 'michael@example.com', 5555555555, '789 Oak St', 'Mathematics'),
+        ('Emily Brown', 'emily@example.com', 1112223333, '321 Pine St', 'Biology'),
+        ('Robert Davis', 'robert@example.com', 4443332222, '567 Maple St', 'Chemistry'),
+        ('Sophia Wilson', 'sophia@example.com', 8889990000, '987 Birch St', 'Physics'),
+        ('Daniel Miller', 'daniel@example.com', 7778889999, '654 Cedar St', 'History'),
+        ('Olivia Martinez', 'olivia@example.com', 6667778888, '852 Walnut St', 'Art'),
+        ('James Taylor', 'james@example.com', 1231231234, '369 Pine St', 'Music'),
+        ('Ava Johnson', 'ava@example.com', 9879879876, '147 Oak St', 'Literature');
+
+
+select * from students_registration;
+
+
+insert into students_registration (Name, Email, Phone_no, Address, Department)
+values ('John cena', 'johncena@example.com', 2356567563, '123 Main St', 'Computer Science'),
+        ('Allen', 'allen@example.com', 3786486853, '456 Elm St', 'Engineering');
+
+DELETE FROM table_name WHERE condition;
+
+delete from students_registration where Id='8';
+
+
+DELETE FROM table_name;
+
+
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+
+update students_registration
+set Name="captain", Email="captain@example.com", Phone_no="4336347734", Address="666 NewYork St", Department="Marvel"
+where Id='10';
