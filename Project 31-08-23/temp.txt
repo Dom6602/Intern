@@ -1,0 +1,1700 @@
+ //   const myDatabase = client.db("user_management");
+  //   console.log("Using the 'user_management' database");
+
+  //   const userCollection = myDatabase.collection("users");
+
+  //   // Insert a new user document
+  //   const newUser = { username: "john_doe", email: "john@example.com" };
+  //   await userCollection.insertOne(newUser);
+  //   console.log("Inserted a new user:", newUser);
+
+  //   // Query for user documents
+  //   const users = await userCollection.find().toArray();
+  //   console.log("User documents:", users);
+  // } catch (error) {
+  //   console.error("Error:", error);
+  // } 
+  // finally {
+  //   // Close the client connection when done
+  //   await client.close();
+  //   console.log("Connection closed");
+  // }
+
+
+
+          // data1 = {
+          //   email_1: data.userDetails
+          // }
+
+        // console.log(data1);
+
+        // fetch("http://localhost:3000/userDetails", {
+        //   method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   body: JSON.stringify(data1),
+        // })
+        //   .then((response) => response.json())
+        //   .then((data) => {
+        //     console.log("Response from server:", data.message);
+        //     console.log("Response from server:", data.userDetails.username);
+
+        //   })
+        //   .catch((error) => {
+        //     console.error("Error sending data to server:", error);
+        //   });
+
+
+            // // const userList = await User.find().exec()
+    //     const emailtoUpdate = await User.findOne({ username: currentEmail }).exec();
+        
+    //     if (emailtoUpdate) {
+    //         emailtoUpdate.username = updateEmail;
+    //         await emailtoUpdate.save();
+
+    //         return res.status(200).json({ message: 'User email updated successfully.' });
+    //     } else {
+    //         return res.status(404).json({ error: 'find error' });
+    //     }
+
+
+
+
+            const formData = new FormData();
+            formData.append("title", title);
+            formData.append("adType", adType);
+            formData.append('description', description);
+            formData.append("category", category);
+            formData.append("price", price);
+            formData.append("name", name);
+            formData.append("number", number);
+            formData.append("email", email);
+            formData.append("address", address);
+            formData.append("adOption", adOption);
+            formData.append("adOption", adOption);
+
+    
+
+    				<div class="card mb-5 ml-3 mr-3">
+					<div class="card-body">
+						<button type="button" onclick="redirect()" style="border: none;"><img id="cardImg" style="border-radius: 15px;" src="data:image/jpeg;base64,${finalValues[1]}"></button>
+						<h5 class="card-title" style="text-align:center">${finalValues[2]}</h5>
+						<h5 class="card-title" style="text-align:center">${finalValues[3]}</h5>
+						<p class="card-text" style="text-align:center">${finalValues[0]}</p>
+						<div id="center">
+							<a href="#" id="buy" onclick="buy()" class="btn btn-primary">Buy Now</a>
+							<a href="#" id="cart" onclick="cart()" class="btn btn-primary">Add to Cart</a>
+						</div>
+					</div>
+				</div>
+
+
+
+
+
+
+
+                                data.Products.map((list, index) => {
+          	console.log(list, index);
+
+			  document.getElementById("insert").innerHTML += `
+					<tr>
+						<td class="product-thumb">
+							<img width="80px" height="auto" src="data:image/jpeg;base64,${list.productImage}" alt="image description"></td>
+						<td class="product-details">
+							<h3 class="title">${list.title}</h3>
+							<span class="add-id"><strong>Ad ID:</strong>${list._id}</span>
+							<span><strong>Description: </strong>${list.description}</span>
+							<span class="status active"><strong>Status</strong>Active</span>
+							<span><strong>Price</strong>${list.price}</span>
+						</td>
+						<td class="product-category"><span class="categories">${list.category}</span></td>
+						<td class="action" data-title="Action">
+							<div class="">
+								<ul class="list-inline justify-content-center">
+									<li class="list-inline-item">
+										<a data-toggle="tooltip" data-placement="top" title="View" class="view" href="category.html">
+											<i class="fa fa-eye"></i>
+										</a>
+									</li>
+									<li class="list-inline-item">
+										<a data-toggle="tooltip" data-placement="top" title="Edit" class="edit" href="">
+											<i class="fa fa-pencil"></i>
+										</a>
+									</li>
+									<li class="list-inline-item">
+										<a data-toggle="tooltip" data-placement="top" title="Delete" class="delete" href="">
+											<i class="fa fa-trash"></i>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</td>
+					</tr>
+				`
+
+							
+
+
+		
+			})
+
+
+
+
+                                  fetch("http://localhost:3000/profileImages", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            }
+            })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Response from server:", data.message);
+            })
+            .catch((error) => {
+              console.error("Error sending data to server:", error);
+            });
+
+
+
+
+
+            	const accessToken = localStorage.getItem("token");
+      console.log("accessToken", accessToken);
+
+      fetch("http://localhost:3000/dashboard", {
+        method: "GET",
+        headers: {
+          "x-auth-token": accessToken,
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Response from server:", data.message);
+
+          // console.log(data.Role);
+
+          if (data.Role == "Authorized") {
+            // return window.location.href = "http://127.0.0.1:5500/themes/classimax-free/dashboard-my-ads.html"
+			fetch("http://localhost:3000/dashboardMyAds", {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+				"x-auth-token": accessToken,
+			}
+			})
+			.then((response) => response.json())
+			.then((data) => {
+				console.log("Response from server:", data.message);
+
+			const productsPerPage = 2;
+			const totalPages = Math.ceil(data.Products.length / productsPerPage);
+
+			function displayProducts(pageNumber) {
+				const startIndex = (pageNumber - 1) * productsPerPage;
+				const endIndex = startIndex + productsPerPage;
+				const productsToDisplay = data.Products.slice(startIndex, endIndex);
+
+				const insertElement = document.getElementById("insert");
+				insertElement.innerHTML = "";
+
+				let productsHTML = ""
+
+				productsToDisplay.forEach((list, index) => {
+					productsHTML += `
+									<tr>
+										<td class="product-thumb">
+											<img width="80px" height="auto" src="data:image/jpeg;base64,${list.productImage}" alt="image description"></td>
+										<td class="product-details">
+											<h3 class="title">${list.title}</h3>
+											<span class="add-id"><strong>Ad ID:</strong>${list._id}</span>
+											<span><strong>Description: </strong>${list.description}</span>
+											<span class="status active"><strong>Status</strong>Active</span>
+											<span><strong>Price</strong>${list.price}</span>
+										</td>
+										<td class="product-category"><span class="categories">${list.category}</span></td>
+										<td class="action" data-title="Action">
+											<div class="">
+												<ul class="list-inline justify-content-center">
+													<li class="list-inline-item">
+														<a data-toggle="tooltip" data-placement="top" title="View" class="view" href="category.html">
+															<i class="fa fa-eye"></i>
+														</a>
+													</li>
+													<li class="list-inline-item">
+														<a data-toggle="tooltip" data-placement="top" title="Edit" class="edit" href="">
+															<i class="fa fa-pencil"></i>
+														</a>
+													</li>
+													<li class="list-inline-item">
+														<a data-toggle="tooltip" data-placement="top" title="Delete" class="delete" href="">
+															<i class="fa fa-trash"></i>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</td>
+									</tr>`
+				});
+				insertElement.innerHTML = productsHTML;
+
+			}
+			displayProducts(1);
+
+
+			const paginationElement = document.querySelector(".pagination ul");
+			for (let page = 1; page <= totalPages; page++) {
+				const li = document.createElement("li");
+				const link = document.createElement("a");
+				link.textContent = page;
+				link.setAttribute("class", "page-link");
+				link.href = "#";
+				li.appendChild(link);
+				paginationElement.appendChild(li);
+
+				link.addEventListener("click", () => {
+					displayProducts(page);
+				});
+			}
+
+			})
+			.catch((error) => {
+				console.error("Error sending data to server:", error);
+			});
+
+          }
+          else {
+            window.location.href = "http://127.0.0.1:5500/themes/classimax-free/404.html"
+          }
+        })
+        .catch((error) => {
+          console.error("Error sending data to server:", error);
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+ if(accessToken !== null) {
+
+      fetch("http://localhost:3000/profile", {
+        method: "GET",
+        headers: {
+          "x-auth-token": accessToken,
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Response from server:", data.message);
+
+          if (data.message == "Profile Loaded Failed") {
+            window.location.href =
+              "http://127.0.0.1:5500/themes/classimax-free/login.html";
+          } else {
+            console.log(data.userDetails);
+
+            currentEmail = document.getElementById("current-email");
+            currentEmail.value = data.userDetails;
+
+            data = {
+              currentEmail: data.userDetails,
+            };
+
+            fetch("http://localhost:3000/getFullDetails", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(data),
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                console.log("Response from server:", data.message);
+                console.log("Response from server:", data.userDatas);
+
+                firstLast = document.getElementById("firstLast");
+                if (
+                  data.userDatas.firstname == undefined &&
+                  data.userDatas.lastname == undefined
+                )
+                  firstLast.value = "";
+                else firstLast.textContent = data.userDatas.firstname + ' ' + data.userDatas.lastname;
+
+                firstName = document.getElementById("first-name");
+                if (data.userDatas.firstname == undefined) firstName.value = "";
+                else firstName.value = data.userDatas.firstname;
+
+                lastName = document.getElementById("last-name");
+                if (data.userDatas.lastname == undefined) lastName.value = "";
+                else lastName.value = data.userDatas.lastname;
+
+                comunityName = document.getElementById("comunity-name");
+                if (data.userDatas.comunityname == undefined)
+                  comunityName.value = "";
+                else comunityName.value = data.userDatas.comunityname;
+
+                zipCode = document.getElementById("zip-code");
+                if (data.userDatas.firstname == undefined) zipCode.value = "";
+                else zipCode.value = data.userDatas.zipcode;
+
+                const imageElement = document.getElementById('get-image');
+                imageElement.src = `data:image/jpeg;base64,${data.userDatas.profileimage}`;
+
+              })
+              .catch((error) => {
+                console.error("Error sending data to server:", error);
+              });
+          }
+        })
+        .catch((error) => {
+          console.error("Error sending data to server:", error);
+        });
+
+      function changeEmail() {
+        currentEmail = document.getElementById("current-email").value;
+        newEmail = document.getElementById("new-email").value;
+
+        if (newEmail == "") {
+          var notification = document.createElement("div");
+          notification.textContent = "Please Enter New Email";
+          notification.style.backgroundColor = "#F05F5E";
+          notification.style.color = "white";
+          notification.style.position = "fixed";
+          notification.style.top = "0";
+          notification.style.right = "0";
+          notification.style.padding = "10px";
+          notification.style.marginTop = "20px";
+          notification.style.marginRight = "30px";
+          notification.style.borderRadius = "5px";
+          document.body.appendChild(notification);
+
+          setTimeout(() => {
+            document.body.removeChild(notification);
+          }, 2000);
+        } else if (newEmail == currentEmail) {
+          var notification = document.createElement("div");
+          notification.textContent = "Please Enter Different Email";
+          notification.style.backgroundColor = "#F05F5E";
+          notification.style.color = "white";
+          notification.style.position = "fixed";
+          notification.style.top = "0";
+          notification.style.right = "0";
+          notification.style.padding = "10px";
+          notification.style.marginTop = "20px";
+          notification.style.marginRight = "30px";
+          notification.style.borderRadius = "5px";
+          document.body.appendChild(notification);
+
+          setTimeout(() => {
+            document.body.removeChild(notification);
+          }, 2000);
+        } else {
+          data = {
+            currentEmail: currentEmail,
+            updateEmail: newEmail,
+          };
+
+          fetch("http://localhost:3000/updateEmail", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Response from server:", data.message);
+              localStorage.removeItem("token");
+
+              var notification = document.createElement("div");
+              notification.textContent = "Email Updated Successfully";
+              notification.style.backgroundColor = "#47C8A3";
+              notification.style.color = "white";
+              notification.style.position = "fixed";
+              notification.style.top = "0";
+              notification.style.right = "0";
+              notification.style.padding = "10px";
+              notification.style.marginTop = "20px";
+              notification.style.marginRight = "30px";
+              notification.style.borderRadius = "5px";
+              document.body.appendChild(notification);
+
+              setTimeout(() => {
+                document.body.removeChild(notification);
+                window.location.href =
+                  "http://127.0.0.1:5500/themes/classimax-free/login.html";
+              }, 2000);
+            })
+            .catch((error) => {
+              console.error("Error sending data to server:", error);
+            });
+        }
+
+        event.preventDefault();
+      }
+
+      function changePassword() {
+        currentEmail = document.getElementById("current-email").value;
+        currentPassword = document.getElementById("current-password").value;
+        newPassword = document.getElementById("new-password").value;
+        confirmPassword = document.getElementById("confirm-password").value;
+
+        if (currentPassword == "") {
+          var notification = document.createElement("div");
+          notification.textContent = "Please Enter currentPassword";
+          notification.style.backgroundColor = "#F05F5E";
+          notification.style.color = "white";
+          notification.style.position = "fixed";
+          notification.style.top = "0";
+          notification.style.right = "0";
+          notification.style.padding = "10px";
+          notification.style.marginTop = "20px";
+          notification.style.marginRight = "30px";
+          notification.style.borderRadius = "5px";
+          document.body.appendChild(notification);
+
+          setTimeout(() => {
+            document.body.removeChild(notification);
+          }, 2000);
+        } else if (
+          newPassword == "" ||
+          confirmPassword == "" ||
+          newPassword !== confirmPassword
+        ) {
+          var notification = document.createElement("div");
+          notification.textContent =
+            "Please correctly Enter Update Password Fiedls";
+          notification.style.backgroundColor = "#F05F5E";
+          notification.style.color = "white";
+          notification.style.position = "fixed";
+          notification.style.top = "0";
+          notification.style.right = "0";
+          notification.style.padding = "10px";
+          notification.style.marginTop = "20px";
+          notification.style.marginRight = "30px";
+          notification.style.borderRadius = "5px";
+          document.body.appendChild(notification);
+
+          setTimeout(() => {
+            document.body.removeChild(notification);
+          }, 2000);
+        } else {
+          data = {
+            currentEmail: currentEmail,
+            currentPassword: currentPassword,
+            updatePassword: newPassword,
+          };
+
+          fetch("http://localhost:3000/updatePassword", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Response from server:", data.message);
+
+              if (data.message == "User password updated successfully.") {
+                var notification = document.createElement("div");
+                notification.textContent = data.message;
+                notification.style.backgroundColor = "#47C8A3";
+                notification.style.color = "white";
+                notification.style.position = "fixed";
+                notification.style.top = "0";
+                notification.style.right = "0";
+                notification.style.padding = "10px";
+                notification.style.marginTop = "20px";
+                notification.style.marginRight = "30px";
+                notification.style.borderRadius = "5px";
+                document.body.appendChild(notification);
+
+                setTimeout(() => {
+                  document.body.removeChild(notification);
+                }, 2000);
+              } else {
+                var notification = document.createElement("div");
+                notification.textContent = data.message;
+                notification.style.backgroundColor = "#F05F5E";
+                notification.style.color = "white";
+                notification.style.position = "fixed";
+                notification.style.top = "0";
+                notification.style.right = "0";
+                notification.style.padding = "10px";
+                notification.style.marginTop = "20px";
+                notification.style.marginRight = "30px";
+                notification.style.borderRadius = "5px";
+                document.body.appendChild(notification);
+
+                setTimeout(() => {
+                  document.body.removeChild(notification);
+                }, 2000);
+              }
+            })
+            .catch((error) => {
+              console.error("Error sending data to server:", error);
+            });
+        }
+        event.preventDefault();
+      }
+
+      function savaChanges() {
+        fn = document.getElementById("first-name").value;
+        ln = document.getElementById("last-name").value;
+
+        fileInput = document.getElementById("input-file");
+        file = fileInput.files[0];
+        const reader = new FileReader();
+            reader.onloadend = function () {
+                  const base64String = reader.result.replace(/^data:image\/[A-Za-z]+;base64,/, '');
+                  console.log(reader);
+                  outsideScope(base64String)
+            };
+
+        cn = document.getElementById("comunity-name").value;
+        pin = document.getElementById("zip-code").value;
+
+        currentEmail = document.getElementById("current-email").value;
+
+        if (file) {
+                reader.readAsDataURL(file);
+                  function outsideScope(base64String) {
+
+                    console.log(base64String);
+
+                    const data = {
+                      firstName: fn,
+                      lastName: ln,
+                      profileImage: base64String,
+                      comunityName: cn,
+                      zipCode: pin,
+                      currentEmail: currentEmail
+                    };
+
+                    console.log(data);
+                                
+                    fetch("http://localhost:3000/editDetails", {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify(data),
+                    })
+                      .then((response) => response.json())
+                      .then((data) => {
+                        console.log("Response from server:", data.message);
+                        console.log("Response from server:", data.image);
+
+                        const finalImage = data.image
+                        console.log(finalImage);
+
+                        const imageElement = document.getElementById('get-image');
+                        imageElement.src = `data:image/jpeg;base64,${finalImage}`;
+
+                        var notification = document.createElement("div");
+                        notification.textContent = data.message;
+                        notification.style.backgroundColor = "#47C8A3";
+                        notification.style.color = "white";
+                        notification.style.position = "fixed";
+                        notification.style.top = "0";
+                        notification.style.right = "0";
+                        notification.style.padding = "10px";
+                        notification.style.marginTop = "20px";
+                        notification.style.marginRight = "30px";
+                        notification.style.borderRadius = "5px";
+                        document.body.appendChild(notification);
+
+                        setTimeout(() => {
+                          document.body.removeChild(notification);
+                          window.location.href =
+                            "http://127.0.0.1:5500/themes/classimax-free/user-profile.html?get-image=#";
+                        }, 2000);
+                      })
+                      .catch((error) => {
+                        console.error("Error sending data to server:", error);
+                      });
+                  }
+      }
+      event.preventDefault();
+      }
+   }
+   else{
+      window.location.href = "http://127.0.0.1:5500/themes/classimax-free/login.html"
+  }
+
+
+
+
+fetch("http://localhost:3000/dashboard", {
+        method: "GET",
+        headers: {
+          "x-auth-token": accessToken,
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Response from server:", data.message);
+		  console.log("Response from server:", data.Email);
+
+          // console.log(data.Role);
+		  const temp = data.Email
+
+          if (data.Role == "Authorized") {
+            // return window.location.href = "http://127.0.0.1:5500/themes/classimax-free/dashboard-my-ads.html"
+			fetch("http://localhost:3000/dashboardMyAds", {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+				"x-auth-token": accessToken,
+			}
+			})
+			.then((response) => response.json())
+			.then((data) => {
+				console.log("Response from server:", data.message);
+
+					const data1 = {
+						currentEmail: temp
+					} 
+
+					fetch("http://localhost:3000/getFullDetails", {
+						method: "POST",
+						headers: {
+						"Content-Type": "application/json",
+						},
+						body: JSON.stringify(data1)
+					})
+					.then((response) => response.json())
+					.then((data) => {
+						console.log("Response from server:", data.message);
+						console.log("Response from server:", data.userDatas.profileimage);
+
+						const imageElement = document.getElementById('get-image');
+              			imageElement.src = `data:image/jpeg;base64,${data.userDatas.profileimage}`;
+
+						firstLast = document.getElementById("FirstLast");
+						firstLast.textContent = data.userDatas.firstname + ' ' + data.userDatas.lastname;
+
+					})
+					.catch((error) => {
+						console.error("Error sending data to server:", error);
+					});
+
+				const productsPerPage = 2;
+				const totalPages = Math.ceil(data.Products.length / productsPerPage);
+
+				function displayProducts(pageNumber) {
+					const startIndex = (pageNumber - 1) * productsPerPage;
+					const endIndex = startIndex + productsPerPage;
+					const productsToDisplay = data.Products.slice(startIndex, endIndex);
+
+					const insertElement = document.getElementById("insert");
+					insertElement.innerHTML = "";
+
+					let productsHTML = ""
+
+					productsToDisplay.forEach((list, index) => {
+						productsHTML += `
+										<tr>
+											<td class="product-thumb">
+												<img width="80px" height="auto" src="data:image/jpeg;base64,${list.productImage}" alt="image description"></td>
+											<td class="product-details">
+												<h3 class="title">${list.title}</h3>
+												<span class="add-id"><strong>Ad ID:</strong>${list._id}</span>
+												<span><strong>Description: </strong>${list.description}</span>
+												<span class="status active"><strong>Status</strong>Active</span>
+												<span><strong>Price</strong>${list.price}</span>
+											</td>
+											<td class="product-category"><span class="categories">${list.category}</span></td>
+											<td class="action" data-title="Action">
+												<div class="">
+													<ul class="list-inline justify-content-center">
+														<li class="list-inline-item">
+															<a data-toggle="tooltip" data-placement="top" title="View" class="view" href="category.html">
+																<i class="fa fa-eye"></i>
+															</a>
+														</li>
+														<li class="list-inline-item">
+															<a data-toggle="tooltip" data-placement="top" title="Edit" class="edit" href="">
+																<i class="fa fa-pencil"></i>
+															</a>
+														</li>
+														<li class="list-inline-item">
+															<a data-toggle="tooltip" data-placement="top" title="Delete" class="delete" href="">
+																<i class="fa fa-trash"></i>
+															</a>
+														</li>
+													</ul>
+												</div>
+											</td>
+										</tr>`
+					});
+					insertElement.innerHTML = productsHTML;
+
+				}
+				displayProducts(1);
+
+
+				const paginationElement = document.querySelector(".pagination ul");
+				for (let page = 1; page <= totalPages; page++) {
+					const li = document.createElement("li");
+					const link = document.createElement("a");
+					link.textContent = page;
+					link.setAttribute("class", "page-link");
+					link.href = "#";
+					li.appendChild(link);
+					paginationElement.appendChild(li);
+
+					link.addEventListener("click", () => {
+						displayProducts(page);
+					});
+				}
+
+			})
+			.catch((error) => {
+				console.error("Error sending data to server:", error);
+			});
+
+          }
+          else {
+            window.location.href = "http://127.0.0.1:5500/themes/classimax-free/404.html"
+          }
+        })
+        .catch((error) => {
+          console.error("Error sending data to server:", error);
+        });
+
+
+
+
+        
+                <div class="col-sm-12 col-lg-4 col-md-6">
+                  <!-- product card -->
+                  <div class="product-item bg-light">
+                    <div class="card">
+                      <div class="thumb-content">
+                        <!-- <div class="price">$200</div> -->
+                        <a href="single.html">
+                          <img
+                            class="card-img-top img-fluid"
+                            src="images/products/products-2.jpg"
+                            alt="Card image cap"
+                          />
+                        </a>
+                      </div>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a href="single.html">Study Table Combo</a>
+                        </h4>
+                        <ul class="list-inline product-meta">
+                          <li class="list-inline-item">
+                            <a href="single.html"
+                              ><i class="fa fa-folder-open-o"></i>Furnitures</a
+                            >
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="#"
+                              ><i class="fa fa-calendar"></i>26th December</a
+                            >
+                          </li>
+                        </ul>
+                        <p class="card-text">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing
+                          elit. Explicabo, aliquam!
+                        </p>
+                        <div class="product-ratings">
+                          <ul class="list-inline">
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item">
+                              <i class="fa fa-star"></i>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-lg-4 col-md-6">
+                  <!-- product card -->
+                  <div class="product-item bg-light">
+                    <div class="card">
+                      <div class="thumb-content">
+                        <!-- <div class="price">$200</div> -->
+                        <a href="single.html">
+                          <img
+                            class="card-img-top img-fluid"
+                            src="images/products/products-3.jpg"
+                            alt="Card image cap"
+                          />
+                        </a>
+                      </div>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a href="single.html">11inch Macbook Air</a>
+                        </h4>
+                        <ul class="list-inline product-meta">
+                          <li class="list-inline-item">
+                            <a href="single.html"
+                              ><i class="fa fa-folder-open-o"></i>Electronics</a
+                            >
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="#"
+                              ><i class="fa fa-calendar"></i>26th December</a
+                            >
+                          </li>
+                        </ul>
+                        <p class="card-text">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing
+                          elit. Explicabo, aliquam!
+                        </p>
+                        <div class="product-ratings">
+                          <ul class="list-inline">
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item">
+                              <i class="fa fa-star"></i>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-lg-4 col-md-6">
+                  <!-- product card -->
+                  <div class="product-item bg-light">
+                    <div class="card">
+                      <div class="thumb-content">
+                        <!-- <div class="price">$200</div> -->
+                        <a href="single.html">
+                          <img
+                            class="card-img-top img-fluid"
+                            src="images/products/products-1.jpg"
+                            alt="Card image cap"
+                          />
+                        </a>
+                      </div>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a href="single.html">11inch Macbook Air</a>
+                        </h4>
+                        <ul class="list-inline product-meta">
+                          <li class="list-inline-item">
+                            <a href="single.html"
+                              ><i class="fa fa-folder-open-o"></i>Electronics</a
+                            >
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="#"
+                              ><i class="fa fa-calendar"></i>26th December</a
+                            >
+                          </li>
+                        </ul>
+                        <p class="card-text">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing
+                          elit. Explicabo, aliquam!
+                        </p>
+                        <div class="product-ratings">
+                          <ul class="list-inline">
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item">
+                              <i class="fa fa-star"></i>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-lg-4 col-md-6">
+                  <!-- product card -->
+                  <div class="product-item bg-light">
+                    <div class="card">
+                      <div class="thumb-content">
+                        <!-- <div class="price">$200</div> -->
+                        <a href="single.html">
+                          <img
+                            class="card-img-top img-fluid"
+                            src="images/products/products-2.jpg"
+                            alt="Card image cap"
+                          />
+                        </a>
+                      </div>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a href="single.html">Study Table Combo</a>
+                        </h4>
+                        <ul class="list-inline product-meta">
+                          <li class="list-inline-item">
+                            <a href="single.html"
+                              ><i class="fa fa-folder-open-o"></i>Furnitures</a
+                            >
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="#"
+                              ><i class="fa fa-calendar"></i>26th December</a
+                            >
+                          </li>
+                        </ul>
+                        <p class="card-text">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing
+                          elit. Explicabo, aliquam!
+                        </p>
+                        <div class="product-ratings">
+                          <ul class="list-inline">
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item">
+                              <i class="fa fa-star"></i>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-lg-4 col-md-6">
+                  <!-- product card -->
+                  <div class="product-item bg-light">
+                    <div class="card">
+                      <div class="thumb-content">
+                        <!-- <div class="price">$200</div> -->
+                        <a href="single.html">
+                          <img
+                            class="card-img-top img-fluid"
+                            src="images/products/products-3.jpg"
+                            alt="Card image cap"
+                          />
+                        </a>
+                      </div>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a href="single.html">11inch Macbook Air</a>
+                        </h4>
+                        <ul class="list-inline product-meta">
+                          <li class="list-inline-item">
+                            <a href="single.html"
+                              ><i class="fa fa-folder-open-o"></i>Electronics</a
+                            >
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="#"
+                              ><i class="fa fa-calendar"></i>26th December</a
+                            >
+                          </li>
+                        </ul>
+                        <p class="card-text">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing
+                          elit. Explicabo, aliquam!
+                        </p>
+                        <div class="product-ratings">
+                          <ul class="list-inline">
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item">
+                              <i class="fa fa-star"></i>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-lg-4 col-md-6">
+                  <!-- product card -->
+                  <div class="product-item bg-light">
+                    <div class="card">
+                      <div class="thumb-content">
+                        <!-- <div class="price">$200</div> -->
+                        <a href="single.html">
+                          <img
+                            class="card-img-top img-fluid"
+                            src="images/products/products-1.jpg"
+                            alt="Card image cap"
+                          />
+                        </a>
+                      </div>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a href="single.html">11inch Macbook Air</a>
+                        </h4>
+                        <ul class="list-inline product-meta">
+                          <li class="list-inline-item">
+                            <a href="single.html"
+                              ><i class="fa fa-folder-open-o"></i>Electronics</a
+                            >
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="#"
+                              ><i class="fa fa-calendar"></i>26th December</a
+                            >
+                          </li>
+                        </ul>
+                        <p class="card-text">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing
+                          elit. Explicabo, aliquam!
+                        </p>
+                        <div class="product-ratings">
+                          <ul class="list-inline">
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item">
+                              <i class="fa fa-star"></i>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-lg-4 col-md-6">
+                  <!-- product card -->
+                  <div class="product-item bg-light">
+                    <div class="card">
+                      <div class="thumb-content">
+                        <!-- <div class="price">$200</div> -->
+                        <a href="single.html">
+                          <img
+                            class="card-img-top img-fluid"
+                            src="images/products/products-2.jpg"
+                            alt="Card image cap"
+                          />
+                        </a>
+                      </div>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a href="single.html">Study Table Combo</a>
+                        </h4>
+                        <ul class="list-inline product-meta">
+                          <li class="list-inline-item">
+                            <a href="single.html"
+                              ><i class="fa fa-folder-open-o"></i>Furnitures</a
+                            >
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="#"
+                              ><i class="fa fa-calendar"></i>26th December</a
+                            >
+                          </li>
+                        </ul>
+                        <p class="card-text">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing
+                          elit. Explicabo, aliquam!
+                        </p>
+                        <div class="product-ratings">
+                          <ul class="list-inline">
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item">
+                              <i class="fa fa-star"></i>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-lg-4 col-md-6">
+                  <!-- product card -->
+                  <div class="product-item bg-light">
+                    <div class="card">
+                      <div class="thumb-content">
+                        <!-- <div class="price">$200</div> -->
+                        <a href="single.html">
+                          <img
+                            class="card-img-top img-fluid"
+                            src="images/products/products-3.jpg"
+                            alt="Card image cap"
+                          />
+                        </a>
+                      </div>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a href="single.html">11inch Macbook Air</a>
+                        </h4>
+                        <ul class="list-inline product-meta">
+                          <li class="list-inline-item">
+                            <a href="single.html"
+                              ><i class="fa fa-folder-open-o"></i>Electronics</a
+                            >
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="#"
+                              ><i class="fa fa-calendar"></i>26th December</a
+                            >
+                          </li>
+                        </ul>
+                        <p class="card-text">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing
+                          elit. Explicabo, aliquam!
+                        </p>
+                        <div class="product-ratings">
+                          <ul class="list-inline">
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item">
+                              <i class="fa fa-star"></i>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+                                
+                <div class="col-sm-12 col-lg-4 col-md-6">
+                  <!-- product card -->
+                  <div class="product-item bg-light">
+                    <div class="card">
+                      <div class="thumb-content">
+                        <!-- <div class="price">$200</div> -->
+                        <a href="single.html">
+                          <img
+                            class="card-img-top img-fluid"
+                            src="images/products/products-2.jpg"
+                            alt="Card image cap"
+                          />
+                        </a>
+                      </div>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a href="single.html">Study Table Combo</a>
+                        </h4>
+                        <ul class="list-inline product-meta">
+                          <li class="list-inline-item">
+                            <a href="single.html"
+                              ><i class="fa fa-folder-open-o"></i>Furnitures</a
+                            >
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="#"
+                              ><i class="fa fa-calendar"></i>26th December</a
+                            >
+                          </li>
+                        </ul>
+                        <p class="card-text">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing
+                          elit. Explicabo, aliquam!
+                        </p>
+                        <div class="product-ratings">
+                          <ul class="list-inline">
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item">
+                              <i class="fa fa-star"></i>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-lg-4 col-md-6">
+                  <!-- product card -->
+                  <div class="product-item bg-light">
+                    <div class="card">
+                      <div class="thumb-content">
+                        <!-- <div class="price">$200</div> -->
+                        <a href="single.html">
+                          <img
+                            class="card-img-top img-fluid"
+                            src="images/products/products-3.jpg"
+                            alt="Card image cap"
+                          />
+                        </a>
+                      </div>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a href="single.html">11inch Macbook Air</a>
+                        </h4>
+                        <ul class="list-inline product-meta">
+                          <li class="list-inline-item">
+                            <a href="single.html"
+                              ><i class="fa fa-folder-open-o"></i>Electronics</a
+                            >
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="#"
+                              ><i class="fa fa-calendar"></i>26th December</a
+                            >
+                          </li>
+                        </ul>
+                        <p class="card-text">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing
+                          elit. Explicabo, aliquam!
+                        </p>
+                        <div class="product-ratings">
+                          <ul class="list-inline">
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item">
+                              <i class="fa fa-star"></i>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-lg-4 col-md-6">
+                  <!-- product card -->
+                  <div class="product-item bg-light">
+                    <div class="card">
+                      <div class="thumb-content">
+                        <!-- <div class="price">$200</div> -->
+                        <a href="single.html">
+                          <img
+                            class="card-img-top img-fluid"
+                            src="images/products/products-1.jpg"
+                            alt="Card image cap"
+                          />
+                        </a>
+                      </div>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a href="single.html">11inch Macbook Air</a>
+                        </h4>
+                        <ul class="list-inline product-meta">
+                          <li class="list-inline-item">
+                            <a href="single.html"
+                              ><i class="fa fa-folder-open-o"></i>Electronics</a
+                            >
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="#"
+                              ><i class="fa fa-calendar"></i>26th December</a
+                            >
+                          </li>
+                        </ul>
+                        <p class="card-text">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing
+                          elit. Explicabo, aliquam!
+                        </p>
+                        <div class="product-ratings">
+                          <ul class="list-inline">
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item">
+                              <i class="fa fa-star"></i>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-lg-4 col-md-6">
+                  <!-- product card -->
+                  <div class="product-item bg-light">
+                    <div class="card">
+                      <div class="thumb-content">
+                        <!-- <div class="price">$200</div> -->
+                        <a href="single.html">
+                          <img
+                            class="card-img-top img-fluid"
+                            src="images/products/products-2.jpg"
+                            alt="Card image cap"
+                          />
+                        </a>
+                      </div>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a href="single.html">Study Table Combo</a>
+                        </h4>
+                        <ul class="list-inline product-meta">
+                          <li class="list-inline-item">
+                            <a href="single.html"
+                              ><i class="fa fa-folder-open-o"></i>Furnitures</a
+                            >
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="#"
+                              ><i class="fa fa-calendar"></i>26th December</a
+                            >
+                          </li>
+                        </ul>
+                        <p class="card-text">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing
+                          elit. Explicabo, aliquam!
+                        </p>
+                        <div class="product-ratings">
+                          <ul class="list-inline">
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item">
+                              <i class="fa fa-star"></i>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-lg-4 col-md-6">
+                  <!-- product card -->
+                  <div class="product-item bg-light">
+                    <div class="card">
+                      <div class="thumb-content">
+                        <!-- <div class="price">$200</div> -->
+                        <a href="single.html">
+                          <img
+                            class="card-img-top img-fluid"
+                            src="images/products/products-3.jpg"
+                            alt="Card image cap"
+                          />
+                        </a>
+                      </div>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a href="single.html">11inch Macbook Air</a>
+                        </h4>
+                        <ul class="list-inline product-meta">
+                          <li class="list-inline-item">
+                            <a href="single.html"
+                              ><i class="fa fa-folder-open-o"></i>Electronics</a
+                            >
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="#"
+                              ><i class="fa fa-calendar"></i>26th December</a
+                            >
+                          </li>
+                        </ul>
+                        <p class="card-text">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing
+                          elit. Explicabo, aliquam!
+                        </p>
+                        <div class="product-ratings">
+                          <ul class="list-inline">
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item">
+                              <i class="fa fa-star"></i>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-lg-4 col-md-6">
+                  <!-- product card -->
+                  <div class="product-item bg-light">
+                    <div class="card">
+                      <div class="thumb-content">
+                        <!-- <div class="price">$200</div> -->
+                        <a href="single.html">
+                          <img
+                            class="card-img-top img-fluid"
+                            src="images/products/products-1.jpg"
+                            alt="Card image cap"
+                          />
+                        </a>
+                      </div>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a href="single.html">11inch Macbook Air</a>
+                        </h4>
+                        <ul class="list-inline product-meta">
+                          <li class="list-inline-item">
+                            <a href="single.html"
+                              ><i class="fa fa-folder-open-o"></i>Electronics</a
+                            >
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="#"
+                              ><i class="fa fa-calendar"></i>26th December</a
+                            >
+                          </li>
+                        </ul>
+                        <p class="card-text">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing
+                          elit. Explicabo, aliquam!
+                        </p>
+                        <div class="product-ratings">
+                          <ul class="list-inline">
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item">
+                              <i class="fa fa-star"></i>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-lg-4 col-md-6">
+                  <!-- product card -->
+                  <div class="product-item bg-light">
+                    <div class="card">
+                      <div class="thumb-content">
+                        <!-- <div class="price">$200</div> -->
+                        <a href="single.html">
+                          <img
+                            class="card-img-top img-fluid"
+                            src="images/products/products-2.jpg"
+                            alt="Card image cap"
+                          />
+                        </a>
+                      </div>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a href="single.html">Study Table Combo</a>
+                        </h4>
+                        <ul class="list-inline product-meta">
+                          <li class="list-inline-item">
+                            <a href="single.html"
+                              ><i class="fa fa-folder-open-o"></i>Furnitures</a
+                            >
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="#"
+                              ><i class="fa fa-calendar"></i>26th December</a
+                            >
+                          </li>
+                        </ul>
+                        <p class="card-text">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing
+                          elit. Explicabo, aliquam!
+                        </p>
+                        <div class="product-ratings">
+                          <ul class="list-inline">
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item">
+                              <i class="fa fa-star"></i>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-lg-4 col-md-6">
+                  <!-- product card -->
+                  <div class="product-item bg-light">
+                    <div class="card">
+                      <div class="thumb-content">
+                        <!-- <div class="price">$200</div> -->
+                        <a href="single.html">
+                          <img
+                            class="card-img-top img-fluid"
+                            src="images/products/products-3.jpg"
+                            alt="Card image cap"
+                          />
+                        </a>
+                      </div>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a href="single.html">11inch Macbook Air</a>
+                        </h4>
+                        <ul class="list-inline product-meta">
+                          <li class="list-inline-item">
+                            <a href="single.html"
+                              ><i class="fa fa-folder-open-o"></i>Electronics</a
+                            >
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="#"
+                              ><i class="fa fa-calendar"></i>26th December</a
+                            >
+                          </li>
+                        </ul>
+                        <p class="card-text">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing
+                          elit. Explicabo, aliquam!
+                        </p>
+                        <div class="product-ratings">
+                          <ul class="list-inline">
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item">
+                              <i class="fa fa-star"></i>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
