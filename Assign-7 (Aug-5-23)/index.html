@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+
+    <style>
+      h1 {
+        text-align: center;
+      }
+
+      #container {
+        display: flex;
+        justify-content: center;
+        margin-top: 100px;
+      }
+
+      #form_design {
+        padding: 16px;
+        border-style: solid;
+        border-radius: 20px;
+        border-color: gray;
+        border-width: 4px 2px 4px 2px;
+      }
+
+      input {
+        width: 85%;
+        height: 5px;
+        padding: 15px;
+        margin-top: 5px;
+        margin-left: 8px;
+      }
+
+      .form-group {
+        margin-bottom: 10px;
+      }
+
+      #btn {
+        border-radius: 10px;
+        text-align: center;
+        width: 98%;
+        height: 30px;
+        background-color: #04aa6d;
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="container">
+      <div id="form_design">
+        <h1 style="margin-top: 5px">Login</h1>
+
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="user"><b>Email</b></label>
+            <input
+              type="text"
+              placeholder="Enter Username"
+              id="user"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="pwd"><b>Password</b></label>
+            <input
+              type="password"
+              placeholder="Enter Password"
+              id="pwd"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <button type="submit" id="btn" onclick="button()">Login</button>
+          </div>
+          <div>
+            <a
+              style="text-decoration: none; margin-left: 10px"
+              href="./forget.html"
+              id="forget_btn"
+              >Forget Password?</a
+            >
+            <span style="margin-left: 50px"
+              >Not a Member?
+              <a href="./register.html" id="signup_btn" style="color: gray"
+                >Register</a
+              ></span
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="test"></div>
+
+    <script>
+      function button() {
+        event.preventDefault();
+
+        const promise = new Promise((resolve, reject) => {
+          const us = document.getElementById("user").value;
+          const ps = document.getElementById("pwd").value;
+
+          data = {
+            username: us,
+            password: ps,
+          };
+
+          fetch("http://localhost:3000/api/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          })
+            .then((response) => response.json())
+            .then((response) => {
+              console.log("Response from server:", response);
+              console.log("Response from server:", response.information);
+
+              // const information = response.information;
+              // const url = `./table.html?info=${encodeURIComponent(
+              //   information
+              // )}`;
+
+              // window.location.href = "./table.html";
+            })
+            .catch((error) => {
+              console.error("Error sending data to server:", error);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>

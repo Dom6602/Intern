@@ -1,0 +1,66 @@
+fetch("http://localhost:3000/api/data")
+.then((response) => response.json())
+.then((data) => {
+  resolve(data);
+})
+.catch((error) => {
+  reject(error);
+});
+});
+
+promise
+.then(function (data) {
+console.log("Data Successfully Added:", data);
+})
+.catch(function (error) {
+console.error("Failed to add data:", error);
+});
+
+
+app.get("/api/data", (req, res) => {
+  res.json(clients);
+});
+
+
+
+async function button() {
+  event.preventDefault();
+
+  const promise = new Promise((resolve, reject) => {
+    const us = document.getElementById("user").value;
+    const ps = document.getElementById("pwd").value;
+
+    data = {
+      username: us,
+      password: ps,
+    };
+
+    await fetch("http://localhost:3000/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        console.log("Response from server:", response);
+        console.log("Response from server:", response.information);
+
+        add(response.information);
+
+        // window.location.href = "./table.html";
+      })
+      .catch((error) => {
+        console.error("Error sending data to server:", error);
+      });
+  });
+}
+
+final = [];
+
+function add(temp) {
+  final.push(temp);
+}
+
+console.log(final);

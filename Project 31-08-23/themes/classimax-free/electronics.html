@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- SITE TITTLE -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Classimax</title>
+
+    <!-- FAVICON -->
+    <link href="img/favicon.png" rel="shortcut icon" />
+    <!-- PLUGINS CSS STYLE -->
+    <!-- <link href="plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet"> -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap-slider.css" />
+    <!-- Font Awesome -->
+    <link
+      href="plugins/font-awesome/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <!-- Owl Carousel -->
+    <link href="plugins/slick-carousel/slick/slick.css" rel="stylesheet" />
+    <link
+      href="plugins/slick-carousel/slick/slick-theme.css"
+      rel="stylesheet"
+    />
+    <!-- Fancy Box -->
+    <link href="plugins/fancybox/jquery.fancybox.pack.css" rel="stylesheet" />
+    <link
+      href="plugins/jquery-nice-select/css/nice-select.css"
+      rel="stylesheet"
+    />
+    <!-- CUSTOM CSS -->
+    <link href="css/style.css" rel="stylesheet" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body class="body-wrapper">
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <nav class="navbar navbar-expand-lg navbar-light navigation">
+              <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="" />
+              </a>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto main-nav">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item dropdown dropdown-slide">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      data-toggle="dropdown"
+                      href=""
+                      >Dashboard<span><i class="fa fa-angle-down"></i></span>
+                    </a>
+
+                    <!-- Dropdown list -->
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="dashboard-my-ads.html"
+                        >Dashboard My Ads</a
+                      >
+                      <a
+                        class="dropdown-item"
+                        href="dashboard-favourite-ads.html"
+                        >Dashboard Favourite Ads</a
+                      >
+                      <a
+                        class="dropdown-item"
+                        href="dashboard-archived-ads.html"
+                        >Dashboard Archived Ads</a
+                      >
+                      <a class="dropdown-item" href="dashboard-pending-ads.html"
+                        >Dashboard Pending Ads</a
+                      >
+                    </div>
+                  </li>
+                  <li class="nav-item dropdown dropdown-slide">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href=""
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      Categories <span><i class="fa fa-angle-down"></i></span>
+                    </a>
+                    <!-- Dropdown list -->
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="http://127.0.0.1:5500/themes/classimax-free/electronics.html">Electronics</a>
+                      <a class="dropdown-item" href="#">Restaurants</a>
+                      <a class="dropdown-item" href="#">Real Estate</a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="navbar-nav ml-auto mt-10">
+                  <li class="nav-item">
+                    <a class="nav-link login-button" href="login.html">Login</a>
+                  </li>
+                  <li id="profileInsert">
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white add-button" href="ad-listing.html"><i class="fa fa-plus-circle"></i> Add Listing</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="page-search">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <!-- Advance Search -->
+            <div class="advance-search">
+              <form>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <input
+                      type="text"
+                      class="form-control my-2 my-lg-0"
+                      id="inputtext4"
+                      placeholder="What are you looking for"
+                    />
+                  </div>
+                  <div class="form-group col-md-3">
+                    <input
+                      type="text"
+                      class="form-control my-2 my-lg-0"
+                      id="inputCategory4"
+                      placeholder="Category"
+                    />
+                  </div>
+                  <div class="form-group col-md-3">
+                    <input
+                      type="text"
+                      class="form-control my-2 my-lg-0"
+                      id="inputLocation4"
+                      placeholder="Location"
+                    />
+                  </div>
+                  <div class="form-group col-md-2">
+                    <button type="submit" class="btn btn-primary" onclick="search()">
+                      Search Now
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section-sm">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="search-result bg-gray">
+              <h2>Results For "Electronics"</h2>
+              <p id="resultsElectronics">123 Results on 12 December, 2017</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="category-sidebar">
+              <div class="widget category-list">
+                <h4 class="widget-header">All Category</h4>
+                <ul class="category-list">
+                  <li>
+                    <a href="category.html"
+                      >Laptops <span id="laptopsCount"></span
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="category.html"
+                      >Iphone <span id="iphoneCount"></span
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="category.html"
+                      >Microsoft <span id="microsoftCount"></span
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="category.html"
+                      >Monitors <span id="monitorsCount"></span
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="widget category-list">
+                <h4 class="widget-header">Nearby</h4>
+                <ul class="category-list">
+                  <li>
+                    <a href="category.html"
+                      >New York <span id="newyorkCount"></span
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="category.html"
+                      >New Jersy <span id="newjersyCount"></span
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="category.html"
+                      >Florida <span id="floridaCount"></span
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="category.html"
+                      >California <span id="californiaCount"></span
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="category.html"
+                      >Texas <span id="texasCount"></span
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="category.html"
+                      >Alaska <span id="alaskaCount"></span
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="widget filter">
+                <h4 class="widget-header">Show Produts</h4>
+                <select>
+                  <option>Popularity</option>
+                  <option value="1">Top rated</option>
+                  <option value="2">Lowest Price</option>
+                  <option value="4">Highest Price</option>
+                </select>
+              </div>
+
+              <div class="widget price-range w-100">
+                <h4 class="widget-header">Price Range</h4>
+                <div class="block">
+                  <input
+                    id = "priceRange"
+                    class="range-track w-100"
+                    type="text"
+                    data-slider-min="0"
+                    data-slider-max="5000"
+                    data-slider-step="5"
+                    data-slider-value="[ 0, 5000]"
+                  />
+                  <div class="d-flex justify-content-between mt-2">
+                    <span class="value">$10 - $5000</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="widget product-shorting">
+                <h4 class="widget-header">By Condition</h4>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" value="" />
+                    Brand New
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" value="" />
+                    Almost New
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" value="" />
+                    Gently New
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" value="" />
+                    Havely New
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="category-search-filter">
+              <div class="row">
+                <div class="col-md-6">
+                  <strong>Short</strong>
+                  <select id="short">
+                    <option>Most Recent</option>
+                    <option value="mostPopular">Most Popular</option>
+                    <option value="lowestPrice">Lowest Price</option>
+                    <option value="highestPrice">Highest Price</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <div class="view">
+                    <strong>Views</strong>
+                    <ul class="list-inline view-switcher">
+                      <li class="list-inline-item">
+                        <a
+                          href="#"
+                          onclick="event.preventDefault();"
+                          class="text-info"
+                          ><i class="fa fa-th-large"></i
+                        ></a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a href="ad-list-view.html"
+                          ><i class="fa fa-reorder"></i
+                        ></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="product-grid-list">
+              <div class="row mt-30"></div>
+            </div>
+            <!-- <div class="pagination justify-content-center">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item active">
+                    <a class="page-link" href="#">2</a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--============================
+=            Footer            =
+=============================-->
+
+    <footer class="footer section section-sm">
+      <!-- Container Start -->
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-7 offset-md-1 offset-lg-0">
+            <!-- About -->
+            <div class="block about">
+              <!-- footer logo -->
+              <img src="images/logo-footer.png" alt="" />
+              <!-- description -->
+              <p class="alt-color">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </p>
+            </div>
+          </div>
+          <!-- Link list -->
+          <div class="col-lg-2 offset-lg-1 col-md-3">
+            <div class="block">
+              <h4>Site Pages</h4>
+              <ul>
+                <li><a href="#">Boston</a></li>
+                <li><a href="#">How It works</a></li>
+                <li><a href="#">Deals & Coupons</a></li>
+                <li><a href="#">Articls & Tips</a></li>
+                <li><a href="terms-condition.html">Terms & Conditions</a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- Link list -->
+          <div class="col-lg-2 col-md-3 offset-md-1 offset-lg-0">
+            <div class="block">
+              <h4>Admin Pages</h4>
+              <ul>
+                <li><a href="category.html">Category</a></li>
+                <li><a href="single.html">Single Page</a></li>
+                <li><a href="store.html">Store Single</a></li>
+                <li><a href="single-blog.html">Single Post</a></li>
+                <li><a href="blog.html">Blog</a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- Promotion -->
+          <div class="col-lg-4 col-md-7">
+            <!-- App promotion -->
+            <div class="block-2 app-promotion">
+              <div class="mobile d-flex">
+                <a href="">
+                  <!-- Icon -->
+                  <img src="images/footer/phone-icon.png" alt="mobile-icon" />
+                </a>
+                <p>Get the Dealsy Mobile App and Save more</p>
+              </div>
+              <div class="download-btn d-flex my-3">
+                <a href="#"
+                  ><img
+                    src="images/apps/google-play-store.png"
+                    class="img-fluid"
+                    alt=""
+                /></a>
+                <a href="#" class="ml-3"
+                  ><img
+                    src="images/apps/apple-app-store.png"
+                    class="img-fluid"
+                    alt=""
+                /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Container End -->
+    </footer>
+    <!-- Footer Bottom -->
+    <footer class="footer-bottom">
+      <!-- Container Start -->
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-12">
+            <!-- Copyright -->
+            <div class="copyright">
+              <p>
+                Copyright ©
+                <script>
+                  var CurrentYear = new Date().getFullYear();
+                  document.write(CurrentYear);
+                </script>
+                . All Rights Reserved, theme by
+                <a
+                  class="text-primary"
+                  href="https://themefisher.com"
+                  target="_blank"
+                  >themefisher.com</a
+                >
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-12">
+            <!-- Social Icons -->
+            <ul class="social-media-icons text-right">
+              <li>
+                <a
+                  class="fa fa-facebook"
+                  href="https://www.facebook.com/themefisher"
+                  target="_blank"
+                ></a>
+              </li>
+              <li>
+                <a
+                  class="fa fa-twitter"
+                  href="https://www.twitter.com/themefisher"
+                  target="_blank"
+                ></a>
+              </li>
+              <li>
+                <a
+                  class="fa fa-pinterest-p"
+                  href="https://www.pinterest.com/themefisher"
+                  target="_blank"
+                ></a>
+              </li>
+              <li><a class="fa fa-vimeo" href=""></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Container End -->
+      <!-- To Top -->
+      <div class="top-to">
+        <a id="top" class="" href="#"><i class="fa fa-angle-up"></i></a>
+      </div>
+    </footer>
+
+    <!-- JAVASCRIPTS -->
+    <script src="plugins/jQuery/jquery.min.js"></script>
+    <script src="plugins/bootstrap/js/popper.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap-slider.js"></script>
+    <!-- tether js -->
+    <script src="plugins/tether/js/tether.min.js"></script>
+    <script src="plugins/raty/jquery.raty-fa.js"></script>
+    <script src="plugins/slick-carousel/slick/slick.min.js"></script>
+    <script src="plugins/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+    <script src="plugins/fancybox/jquery.fancybox.pack.js"></script>
+    <script src="plugins/smoothscroll/SmoothScroll.min.js"></script>
+    <!-- google map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
+    <script src="plugins/google-map/gmap.js"></script>
+    <script src="js/script.js"></script>
+
+    <script>
+      const accessToken = localStorage.getItem("token");
+      console.log("accessToken", accessToken);
+
+      if (accessToken !== null || accessToken !== "") {
+        fetch("http://localhost:3000/roleCheck", {
+          method: "GET",
+          headers: {
+            "x-auth-token": accessToken,
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Response from server:", data);
+            console.log("Response from server:", data.Role);
+
+            console.log("Response from server:", data.userEmail);
+
+            // if((data.Role  !== "Authorized") && (data.Role  !== "Not Authorized")) {
+            // 	window.location.href = "http://127.0.0.1:5500/themes/classimax-free/login.html"
+            // }
+            // else if (data.Role  === "") {
+            // 	window.location.href = "http://127.0.0.1:5500/themes/classimax-free/login.html"
+            // }
+            if (data.Role === "invalid") {
+              window.location.href =
+                "http://127.0.0.1:5500/themes/classimax-free/login.html";
+            } 
+            else if (data.Role === "Not Authorized") {
+              const firstNavItem = document.querySelector(
+                ".nav-item.dropdown.dropdown-slide"
+              );
+              if (firstNavItem) {
+                firstNavItem.style.display = "none";
+              }
+
+              const loginNavItem = document.querySelector(
+                ".navbar-nav.ml-auto.mt-10 .nav-item"
+              );
+              if (loginNavItem) {
+                loginNavItem.style.display = "none";
+              }
+
+              const addListingNavItem = document.querySelector(
+                ".navbar-nav.ml-auto.mt-10 .nav-item .nav-link.text-white.add-button"
+              );
+              if (addListingNavItem) {
+                addListingNavItem.style.display = "none";
+              }
+
+
+              data = {
+                    currentEmail: data.userEmail
+              };
+                
+             fetch("http://localhost:3000/getFullDetails", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+              })
+              .then((response) => response.json())
+              .then((data) => {
+                console.log("Response from server:", data.message);
+                console.log("Response from server:", data.userDatas);
+
+                const profileInsert = document.querySelector("#profileInsert");
+				        profileInsert.innerHTML = `
+											<style>
+												.widget {
+													box-shadow: none;
+												}
+
+												.widget.user {
+													padding-top: 0px;
+													padding-bottom: 0px;
+													border: none;
+													outline: none;
+												}
+
+												.widget.user .image img {
+													width: 60px;
+													height: 60px;
+													border-radius: 100%;
+													border: 3px solid #dedede;
+												}
+											</style>
+
+											<div class="widget user">
+												<div style="display: flex; justify-content: center;">
+												<div class="image d-flex justify-content-center">
+													<a href="http://127.0.0.1:5500/themes/classimax-free/user-profile.html">
+														<img src="data:image/jpeg;base64,${data.userDatas.profileimage}" alt="" class="" id="get-image"/>
+												    </a>
+												</div>
+												</div>
+											</div>
+
+                            `
+
+                  })
+                .catch((error) => {
+                  console.error("Error sending data to server:", error);
+                });
+
+
+
+
+              fetch("http://localhost:3000/electronics", {
+                method: "GET",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              })
+                .then((response) => response.json())
+                .then((data) => {
+                  console.log("Response from server:", data.message);
+                  // console.log("Response from server:", data.Products);
+                  // console.log("Response from server:", data.Laptops);
+                  // console.log("Response from server:", data.RecentItems);
+
+                  Results = document.getElementById("resultsElectronics");
+                  currentDate = new Date();
+                  monthNames = [
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December",
+                  ];
+                  Results.innerText =
+                    data.RecentItems.length +
+                    " " +
+                    "Results on" +
+                    " " +
+                    currentDate.getDate() +
+                    " " +
+                    monthNames[currentDate.getMonth()] +
+                    ", " +
+                    currentDate.getFullYear();
+
+                  Laptops = document.getElementById("laptopsCount");
+                  Laptops.innerHTML = data.Laptops;
+                  Iphone = document.getElementById("iphoneCount");
+                  Iphone.innerHTML = data.Iphone;
+                  Microsoft = document.getElementById("microsoftCount");
+                  Microsoft.innerHTML = data.Microsoft;
+                  Monitors = document.getElementById("monitorsCount");
+                  Monitors.innerHTML = data.Monitors;
+
+                  newYork = document.getElementById("newyorkCount");
+                  newYork.innerHTML = data.Newyork;
+                  newJersy = document.getElementById("newjersyCount");
+                  newJersy.innerHTML = data.Newjersy;
+                  florida = document.getElementById("floridaCount");
+                  florida.innerHTML = data.Florida;
+                  california = document.getElementById("californiaCount");
+                  california.innerHTML = data.California;
+                  texas = document.getElementById("texasCount");
+                  texas.innerHTML = data.Texas;
+                  alaska = document.getElementById("alaskaCount");
+                  alaska.innerHTML = data.Alaska;
+
+                  const productsPerPage = 20;
+                  const totalPages = Math.ceil(
+                    data.RecentItems.length / productsPerPage
+                  );
+
+                  function displayProducts(pageNumber) {
+                    const startIndex = (pageNumber - 1) * productsPerPage;
+                    const endIndex = startIndex + productsPerPage;
+                    const productsToDisplay = data.RecentItems.slice(
+                      startIndex,
+                      endIndex
+                    );
+
+                    const productGrid = document.querySelector(
+                      ".product-grid-list .row"
+                    );
+                    productGrid.innerHTML = "";
+
+                    productsToDisplay.forEach((product, index) => {
+                      // console.log(product.price);
+                      const productHTML = `
+
+                              <style>
+                                .card-img-top {
+                                  width: 120px !important;
+                                  height: 110px !important;
+                                  margin-left: 60px !important;
+                                }
+                              </style>
+
+                              <div class="col-sm-12 col-lg-4 col-md-6">
+                              <!-- product card -->
+                              <div class="product-item bg-light">
+                                <div class="card">
+                                <div class="thumb-content">
+                                  <div class="price">${product.price}</div>
+                                  <a href="single.html">
+                                  <img class="card-img-top img-fluid"
+                                      src="data:image/jpeg;base64,${product.productImage}"
+                                      alt="Card image cap"
+                                  />
+                                  </a>
+                                </div>
+                                <div class="card-body">
+                                  <h4 class="card-title">
+                                  <a href="single.html">${product.title}</a>
+                                  </h4>
+                                  <ul class="list-inline product-meta">
+                                  <li class="list-inline-item">
+                                    <a href="single.html"
+                                    ><i class="fa fa-folder-open-o"></i>${product.category}</a
+                                    >
+                                  </li>
+                                  </ul>
+                                  <p class="card-text">${product.description}</p>
+                                  <div class="product-ratings">
+                                  <ul class="list-inline">
+                                    <li class="list-inline-item selected">
+                                    <i class="fa fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item selected">
+                                    <i class="fa fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item selected">
+                                    <i class="fa fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item selected">
+                                    <i class="fa fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item">
+                                    <i class="fa fa-star"></i>
+                                    </li>
+                                  </ul>
+                                  </div>
+                                </div>
+                                </div>
+                              </div>
+                              </div>
+                                  `;
+                      productGrid.insertAdjacentHTML("beforeend", productHTML);
+                    });
+                  }
+                  displayProducts(1);
+
+                  const paginationElement =
+                    document.querySelector(".pagination ul");
+                  for (let page = 1; page <= totalPages; page++) {
+                    const li = document.createElement("li");
+                    const link = document.createElement("a");
+                    link.textContent = page;
+                    link.setAttribute("class", "page-link");
+                    link.href = "#";
+                    li.appendChild(link);
+                    // paginationElement.appendChild(li);
+
+                    link.addEventListener("click", () => {
+                      displayProducts(page);
+                    });
+                  }
+                })
+                .catch((error) => {
+                  console.error("Error sending data to server:", error);
+                });
+            } 
+            else {
+              const loginNavItem = document.querySelector(".navbar-nav.ml-auto.mt-10 .nav-item");
+              if (loginNavItem) {
+              loginNavItem.style.display = "none";
+              }
+
+              const addListingNavItem = document.querySelector(".navbar-nav.ml-auto.mt-10 .nav-item .nav-link.text-white.add-button");
+              if (addListingNavItem) {
+              addListingNavItem.style.display = "none";
+              }
+
+              data = {
+                    currentEmail: data.userEmail
+              };
+                
+             fetch("http://localhost:3000/getFullDetails", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+              })
+              .then((response) => response.json())
+              .then((data) => {
+                console.log("Response from server:", data.message);
+                console.log("Response from server:", data.userDatas);
+
+                const profileInsert = document.querySelector("#profileInsert");
+				        profileInsert.innerHTML = `
+											<style>
+												.widget {
+													box-shadow: none;
+												}
+
+												.widget.user {
+													padding-top: 0px;
+													padding-bottom: 0px;
+													border: none;
+													outline: none;
+												}
+
+												.widget.user .image img {
+													width: 60px;
+													height: 60px;
+													border-radius: 100%;
+													border: 3px solid #dedede;
+												}
+											</style>
+
+											<div class="widget user">
+												<div style="display: flex; justify-content: center;">
+												<div>
+													<a style="margin: 20px 25px 0px 0px" class="nav-link text-white add-button" href="ad-listing.html"><i class="fa fa-plus-circle"></i> Add Listing</a>
+												</div>
+												<div class="image d-flex justify-content-center">
+													<a href="http://127.0.0.1:5500/themes/classimax-free/user-profile.html">
+														<img src="data:image/jpeg;base64,${data.userDatas.profileimage}" alt="" class="" id="get-image"/>
+												    </a>
+												</div>
+												</div>
+											</div>
+
+                            `
+
+                  })
+                .catch((error) => {
+                  console.error("Error sending data to server:", error);
+                });
+
+
+
+              fetch("http://localhost:3000/electronics", {
+                method: "GET",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              })
+                .then((response) => response.json())
+                .then((data) => {
+                  console.log("Response from server:", data.message);
+                  // console.log("Response from server:", data.Products);
+                  // console.log("Response from server:", data.Laptops);
+                  // console.log("Response from server:", data.RecentItems);
+
+
+                  test1 = localStorage.getItem('nameSearch')
+                  test2 = localStorage.getItem('categorySearch')
+                  test3 = localStorage.getItem('locationSearch')
+
+                  console.log(test1 ==null && test2 ==null && test3 ==null);
+
+                  if (test1 ==null && test2 ==null && test3 ==null){
+
+                  Results = document.getElementById("resultsElectronics");
+                  currentDate = new Date();
+                  monthNames = [
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December",
+                  ];
+                  Results.innerText =
+                    data.RecentItems.length +
+                    " " +
+                    "Results on" +
+                    " " +
+                    currentDate.getDate() +
+                    " " +
+                    monthNames[currentDate.getMonth()] +
+                    ", " +
+                    currentDate.getFullYear();
+
+                  Laptops = document.getElementById("laptopsCount");
+                  Laptops.innerHTML = data.Laptops;
+                  Iphone = document.getElementById("iphoneCount");
+                  Iphone.innerHTML = data.Iphone;
+                  Microsoft = document.getElementById("microsoftCount");
+                  Microsoft.innerHTML = data.Microsoft;
+                  Monitors = document.getElementById("monitorsCount");
+                  Monitors.innerHTML = data.Monitors;
+
+                  newYork = document.getElementById("newyorkCount");
+                  newYork.innerHTML = data.Newyork;
+                  newJersy = document.getElementById("newjersyCount");
+                  newJersy.innerHTML = data.Newjersy;
+                  florida = document.getElementById("floridaCount");
+                  florida.innerHTML = data.Florida;
+                  california = document.getElementById("californiaCount");
+                  california.innerHTML = data.California;
+                  texas = document.getElementById("texasCount");
+                  texas.innerHTML = data.Texas;
+                  alaska = document.getElementById("alaskaCount");
+                  alaska.innerHTML = data.Alaska;
+
+                  const productsPerPage = 20;
+                  const totalPages = Math.ceil(
+                    data.RecentItems.length / productsPerPage
+                  );
+
+                  function displayProducts(pageNumber) {
+                    const startIndex = (pageNumber - 1) * productsPerPage;
+                    const endIndex = startIndex + productsPerPage;
+                    const productsToDisplay = data.RecentItems.slice(
+                      startIndex,
+                      endIndex
+                    );
+
+                    const productGrid = document.querySelector(
+                      ".product-grid-list .row"
+                    );
+                    productGrid.innerHTML = "";
+
+                    productsToDisplay.forEach((product, index) => {
+                      // console.log(product.price);
+                      const productHTML = `
+
+                              <style>
+                                .card-img-top {
+                                  width: 120px !important;
+                                  height: 110px !important;
+                                  margin-left: 60px !important;
+                                }
+                              </style>
+
+                              <div class="col-sm-12 col-lg-4 col-md-6">
+                              <!-- product card -->
+                              <div class="product-item bg-light">
+                                <div class="card">
+                                <div class="thumb-content">
+                                  <div class="price">${product.price}</div>
+                                  <a href="single.html">
+                                  <img class="card-img-top img-fluid"
+                                      src="data:image/jpeg;base64,${product.productImage}"
+                                      alt="Card image cap"
+                                  />
+                                  </a>
+                                </div>
+                                <div class="card-body">
+                                  <h4 class="card-title">
+                                  <a href="single.html">${product.title}</a>
+                                  </h4>
+                                  <ul class="list-inline product-meta">
+                                  <li class="list-inline-item">
+                                    <a href="single.html"
+                                    ><i class="fa fa-folder-open-o"></i>${product.category}</a
+                                    >
+                                  </li>
+                                  </ul>
+                                  <p class="card-text">${product.description}</p>
+                                  <div class="product-ratings">
+                                  <ul class="list-inline">
+                                    <li class="list-inline-item selected">
+                                    <i class="fa fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item selected">
+                                    <i class="fa fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item selected">
+                                    <i class="fa fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item selected">
+                                    <i class="fa fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item">
+                                    <i class="fa fa-star"></i>
+                                    </li>
+                                  </ul>
+                                  </div>
+                                </div>
+                                </div>
+                              </div>
+                              </div>
+                                  `;
+                      productGrid.insertAdjacentHTML("beforeend", productHTML);
+                    });
+                  }
+                  displayProducts(1);
+
+                  const paginationElement =
+                    document.querySelector(".pagination ul");
+                  for (let page = 1; page <= totalPages; page++) {
+                    const li = document.createElement("li");
+                    const link = document.createElement("a");
+                    link.textContent = page;
+                    link.setAttribute("class", "page-link");
+                    link.href = "#";
+                    li.appendChild(link);
+                    // paginationElement.appendChild(li);
+
+                    link.addEventListener("click", () => {
+                      displayProducts(page);
+                    });
+                  }
+
+                }
+                else {
+                      search()
+                }
+
+                })
+                .catch((error) => {
+                  console.error("Error sending data to server:", error);
+                });
+            }
+          })
+          .catch((error) => {
+            console.error("Error sending data to server:", error);
+          });
+      } else {
+        window.location.href =
+          "http://127.0.0.1:5500/themes/classimax-free/login.html";
+      }
+
+
+
+/////////////////////////////////////////////////
+
+
+      $(document).ready(function () {
+        let selectElement = $("#short");
+
+        selectElement.on("change", function () {
+          // console.log(selectElement.val());
+
+          shorting = selectElement.val();
+          console.log(shorting);
+
+          fetch("http://localhost:3000/electronics", {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Response from server:", data.message);
+              console.log(data);
+              // console.log("Response from server:", data.Products);
+              // console.log("Response from server:", data.Laptops);
+              // console.log("Response from server:", data.RecentItems);
+
+              Results = document.getElementById("resultsElectronics");
+              currentDate = new Date();
+              monthNames = [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December",
+              ];
+              Results.innerText =
+                data.RecentItems.length +
+                " " +
+                "Results on" +
+                " " +
+                currentDate.getDate() +
+                " " +
+                monthNames[currentDate.getMonth()] +
+                ", " +
+                currentDate.getFullYear();
+
+              Laptops = document.getElementById("laptopsCount");
+              Laptops.innerHTML = data.Laptops;
+              Iphone = document.getElementById("iphoneCount");
+              Iphone.innerHTML = data.Iphone;
+              Microsoft = document.getElementById("microsoftCount");
+              Microsoft.innerHTML = data.Microsoft;
+              Monitors = document.getElementById("monitorsCount");
+              Monitors.innerHTML = data.Monitors;
+
+              newYork = document.getElementById("newyorkCount");
+              newYork.innerHTML = data.Newyork;
+              newJersy = document.getElementById("newjersyCount");
+              newJersy.innerHTML = data.Newjersy;
+              florida = document.getElementById("floridaCount");
+              florida.innerHTML = data.Florida;
+              california = document.getElementById("californiaCount");
+              california.innerHTML = data.California;
+              texas = document.getElementById("texasCount");
+              texas.innerHTML = data.Texas;
+              alaska = document.getElementById("alaskaCount");
+              alaska.innerHTML = data.Alaska;
+
+              if (shorting == "highestPrice") {
+                const productsPerPage = 20;
+                const totalPages = Math.ceil(
+                  data.HighestPrice.length / productsPerPage
+                );
+
+                function displayProducts(pageNumber) {
+                  const startIndex = (pageNumber - 1) * productsPerPage;
+                  const endIndex = startIndex + productsPerPage;
+                  const productsToDisplay = data.HighestPrice.slice(
+                    startIndex,
+                    endIndex
+                  );
+
+                  const productGrid = document.querySelector(
+                    ".product-grid-list .row"
+                  );
+                  productGrid.innerHTML = "";
+
+                  productsToDisplay.forEach((product, index) => {
+                    // console.log(product.price);
+                    const productHTML = `
+
+                                      <style>
+                                        .card-img-top {
+                                          width: 120px !important;
+                                          height: 110px !important;
+                                          margin-left: 60px !important;
+                                        }
+                                      </style>
+
+                                      <div class="col-sm-12 col-lg-4 col-md-6">
+                                      <!-- product card -->
+                                      <div class="product-item bg-light">
+                                        <div class="card">
+                                        <div class="thumb-content">
+                                          <div class="price">${product.price}</div>
+                                          <a href="single.html">
+                                          <img class="card-img-top img-fluid"
+                                              src="data:image/jpeg;base64,${product.productImage}"
+                                              alt="Card image cap"
+                                          />
+                                          </a>
+                                        </div>
+                                        <div class="card-body">
+                                          <h4 class="card-title">
+                                          <a href="single.html">${product.title}</a>
+                                          </h4>
+                                          <ul class="list-inline product-meta">
+                                          <li class="list-inline-item">
+                                            <a href="single.html"
+                                            ><i class="fa fa-folder-open-o"></i>${product.category}</a
+                                            >
+                                          </li>
+                                          </ul>
+                                          <p class="card-text">${product.description}</p>
+                                          <div class="product-ratings">
+                                          <ul class="list-inline">
+                                            <li class="list-inline-item selected">
+                                            <i class="fa fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item selected">
+                                            <i class="fa fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item selected">
+                                            <i class="fa fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item selected">
+                                            <i class="fa fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item">
+                                            <i class="fa fa-star"></i>
+                                            </li>
+                                          </ul>
+                                          </div>
+                                        </div>
+                                        </div>
+                                      </div>
+                                      </div>
+                                          `;
+                    productGrid.insertAdjacentHTML("beforeend", productHTML);
+                  });
+                }
+                displayProducts(1);
+
+                const paginationElement =
+                  document.querySelector(".pagination ul");
+                for (let page = 1; page <= totalPages; page++) {
+                  const li = document.createElement("li");
+                  const link = document.createElement("a");
+                  link.textContent = page;
+                  link.setAttribute("class", "page-link");
+                  link.href = "#";
+                  li.appendChild(link);
+                  // paginationElement.appendChild(li);
+
+                  link.addEventListener("click", () => {
+                    displayProducts(page);
+                  });
+                }
+              } 
+              
+              else if (shorting == "lowestPrice") {
+                const productsPerPage = 20;
+                const totalPages = Math.ceil(
+                  data.LowestPrice.length / productsPerPage
+                );
+
+                function displayProducts(pageNumber) {
+                  const startIndex = (pageNumber - 1) * productsPerPage;
+                  const endIndex = startIndex + productsPerPage;
+                  const productsToDisplay = data.LowestPrice.slice(
+                    startIndex,
+                    endIndex
+                  );
+
+                  const productGrid = document.querySelector(
+                    ".product-grid-list .row"
+                  );
+                  productGrid.innerHTML = "";
+
+                  productsToDisplay.forEach((product, index) => {
+                    // console.log(product.price);
+                    const productHTML = `
+
+                                      <style>
+                                        .card-img-top {
+                                          width: 120px !important;
+                                          height: 110px !important;
+                                          margin-left: 60px !important;
+                                        }
+                                      </style>
+
+                                      <div class="col-sm-12 col-lg-4 col-md-6">
+                                      <!-- product card -->
+                                      <div class="product-item bg-light">
+                                        <div class="card">
+                                        <div class="thumb-content">
+                                          <div class="price">${product.price}</div>
+                                          <a href="single.html">
+                                          <img class="card-img-top img-fluid"
+                                              src="data:image/jpeg;base64,${product.productImage}"
+                                              alt="Card image cap"
+                                          />
+                                          </a>
+                                        </div>
+                                        <div class="card-body">
+                                          <h4 class="card-title">
+                                          <a href="single.html">${product.title}</a>
+                                          </h4>
+                                          <ul class="list-inline product-meta">
+                                          <li class="list-inline-item">
+                                            <a href="single.html"
+                                            ><i class="fa fa-folder-open-o"></i>${product.category}</a
+                                            >
+                                          </li>
+                                          </ul>
+                                          <p class="card-text">${product.description}</p>
+                                          <div class="product-ratings">
+                                          <ul class="list-inline">
+                                            <li class="list-inline-item selected">
+                                            <i class="fa fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item selected">
+                                            <i class="fa fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item selected">
+                                            <i class="fa fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item selected">
+                                            <i class="fa fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item">
+                                            <i class="fa fa-star"></i>
+                                            </li>
+                                          </ul>
+                                          </div>
+                                        </div>
+                                        </div>
+                                      </div>
+                                      </div>
+                                          `;
+                    productGrid.insertAdjacentHTML("beforeend", productHTML);
+                  });
+                }
+                displayProducts(1);
+
+                const paginationElement =
+                  document.querySelector(".pagination ul");
+                for (let page = 1; page <= totalPages; page++) {
+                  const li = document.createElement("li");
+                  const link = document.createElement("a");
+                  link.textContent = page;
+                  link.setAttribute("class", "page-link");
+                  link.href = "#";
+                  li.appendChild(link);
+                  // paginationElement.appendChild(li);
+
+                  link.addEventListener("click", () => {
+                    displayProducts(page);
+                  });
+                }
+              }
+            })
+            .catch((error) => {
+              console.error("Error sending data to server:", error);
+            });
+        });
+      })
+
+
+
+      
+      let debounceTimeout;
+      $('#priceRange').on('change', function(event) {
+          const selectedPriceRange = $(this).val();
+          clearTimeout(debounceTimeout);
+
+          debounceTimeout = setTimeout(() => {
+              const selectedPriceRange = $(this).val();
+              const [minPrice, maxPrice] = selectedPriceRange.split(",");
+              console.log(minPrice, maxPrice);
+
+                data = {
+                  minPrice: minPrice,
+                  maxPrice: maxPrice
+                }
+
+                fetch("http://localhost:3000/electronics", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(data),
+                })
+                  .then((response) => response.json())
+                  .then((data) => {
+                    console.log("Response from server:", data.message);
+                    console.log(data.FinalRangeProduct);
+                    // console.log("Response from server:", data.Products);
+                    // console.log("Response from server:", data.Laptops);
+                    // console.log("Response from server:", data.RecentItems);
+
+                    Results = document.getElementById("resultsElectronics");
+                    currentDate = new Date();
+                    monthNames = [
+                      "January",
+                      "February",
+                      "March",
+                      "April",
+                      "May",
+                      "June",
+                      "July",
+                      "August",
+                      "September",
+                      "October",
+                      "November",
+                      "December",
+                    ];
+                    Results.innerText =
+                      data.RecentItems.length +
+                      " " +
+                      "Results on" +
+                      " " +
+                      currentDate.getDate() +
+                      " " +
+                      monthNames[currentDate.getMonth()] +
+                      ", " +
+                      currentDate.getFullYear();
+
+                    Laptops = document.getElementById("laptopsCount");
+                    Laptops.innerHTML = data.Laptops;
+                    Iphone = document.getElementById("iphoneCount");
+                    Iphone.innerHTML = data.Iphone;
+                    Microsoft = document.getElementById("microsoftCount");
+                    Microsoft.innerHTML = data.Microsoft;
+                    Monitors = document.getElementById("monitorsCount");
+                    Monitors.innerHTML = data.Monitors;
+
+                    newYork = document.getElementById("newyorkCount");
+                    newYork.innerHTML = data.Newyork;
+                    newJersy = document.getElementById("newjersyCount");
+                    newJersy.innerHTML = data.Newjersy;
+                    florida = document.getElementById("floridaCount");
+                    florida.innerHTML = data.Florida;
+                    california = document.getElementById("californiaCount");
+                    california.innerHTML = data.California;
+                    texas = document.getElementById("texasCount");
+                    texas.innerHTML = data.Texas;
+                    alaska = document.getElementById("alaskaCount");
+                    alaska.innerHTML = data.Alaska;
+
+                      const productsPerPage = 20;
+                      const totalPages = Math.ceil(
+                        data.FinalRangeProduct.length / productsPerPage
+                      );
+
+                      function displayProducts(pageNumber) {
+                        const startIndex = (pageNumber - 1) * productsPerPage;
+                        const endIndex = startIndex + productsPerPage;
+                        const productsToDisplay = data.FinalRangeProduct.slice(
+                          startIndex,
+                          endIndex
+                        );
+
+                        const productGrid = document.querySelector(
+                          ".product-grid-list .row"
+                        );
+                        productGrid.innerHTML = "";
+
+                        productsToDisplay.forEach((product, index) => {
+                          // console.log(product.price);
+                          const productHTML = `
+
+                                            <style>
+                                              .card-img-top {
+                                                width: 120px !important;
+                                                height: 110px !important;
+                                                margin-left: 60px !important;
+                                              }
+                                            </style>
+
+                                            <div class="col-sm-12 col-lg-4 col-md-6">
+                                            <!-- product card -->
+                                            <div class="product-item bg-light">
+                                              <div class="card">
+                                              <div class="thumb-content">
+                                                <div class="price">${product.price}</div>
+                                                <a href="single.html">
+                                                <img class="card-img-top img-fluid"
+                                                    src="data:image/jpeg;base64,${product.productImage}"
+                                                    alt="Card image cap"
+                                                />
+                                                </a>
+                                              </div>
+                                              <div class="card-body">
+                                                <h4 class="card-title">
+                                                <a href="single.html">${product.title}</a>
+                                                </h4>
+                                                <ul class="list-inline product-meta">
+                                                <li class="list-inline-item">
+                                                  <a href="single.html"
+                                                  ><i class="fa fa-folder-open-o"></i>${product.category}</a
+                                                  >
+                                                </li>
+                                                </ul>
+                                                <p class="card-text">${product.description}</p>
+                                                <div class="product-ratings">
+                                                <ul class="list-inline">
+                                                  <li class="list-inline-item selected">
+                                                  <i class="fa fa-star"></i>
+                                                  </li>
+                                                  <li class="list-inline-item selected">
+                                                  <i class="fa fa-star"></i>
+                                                  </li>
+                                                  <li class="list-inline-item selected">
+                                                  <i class="fa fa-star"></i>
+                                                  </li>
+                                                  <li class="list-inline-item selected">
+                                                  <i class="fa fa-star"></i>
+                                                  </li>
+                                                  <li class="list-inline-item">
+                                                  <i class="fa fa-star"></i>
+                                                  </li>
+                                                </ul>
+                                                </div>
+                                              </div>
+                                              </div>
+                                            </div>
+                                            </div>
+                                                `;
+                          productGrid.insertAdjacentHTML("beforeend", productHTML);
+                        });
+                      }
+                      displayProducts(1);
+
+                      const paginationElement =
+                        document.querySelector(".pagination ul");
+                      for (let page = 1; page <= totalPages; page++) {
+                        const li = document.createElement("li");
+                        const link = document.createElement("a");
+                        link.textContent = page;
+                        link.setAttribute("class", "page-link");
+                        link.href = "#";
+                        li.appendChild(link);
+                        // paginationElement.appendChild(li);
+
+                        link.addEventListener("click", () => {
+                          displayProducts(page);
+                        });
+                      }
+                    })              
+          }, 2000)
+      })
+
+
+      
+
+
+      function search() {
+
+        // console.log("djhfbhgb");
+
+        fail1 = localStorage.getItem('nameSearch')
+        fail2 = localStorage.getItem('categorySearch')
+        fail3 = localStorage.getItem('locationSearch')
+
+        if(fail1 !== null || fail2 !== null || fail3 !== null)  {
+          
+          nameSearchInput = document.getElementById('inputtext4')
+          categorySearchInput = document.getElementById('inputCategory4')
+          locationSearchInput = document.getElementById('inputLocation4')
+
+          nameSearchInput.value = fail1
+          categorySearchInput.value = fail2
+          locationSearchInput.value = fail3
+
+          fetch("http://localhost:3000/electronics", {
+                method: "GET",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              })
+                .then((response) => response.json())
+                .then((data) => {
+                  console.log("Response from server:", data.message);
+                  // console.log("Response from server:", data.Products);
+                  // console.log("Response from server:", data.Laptops);
+                  // console.log("Response from server:", data.RecentItems);
+
+                  Results = document.getElementById("resultsElectronics");
+                  currentDate = new Date();
+                  monthNames = [
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December",
+                  ];
+                  Results.innerText =
+                    data.RecentItems.length +
+                    " " +
+                    "Results on" +
+                    " " +
+                    currentDate.getDate() +
+                    " " +
+                    monthNames[currentDate.getMonth()] +
+                    ", " +
+                    currentDate.getFullYear();
+
+                  Laptops = document.getElementById("laptopsCount");
+                  Laptops.innerHTML = data.Laptops;
+                  Iphone = document.getElementById("iphoneCount");
+                  Iphone.innerHTML = data.Iphone;
+                  Microsoft = document.getElementById("microsoftCount");
+                  Microsoft.innerHTML = data.Microsoft;
+                  Monitors = document.getElementById("monitorsCount");
+                  Monitors.innerHTML = data.Monitors;
+
+                  newYork = document.getElementById("newyorkCount");
+                  newYork.innerHTML = data.Newyork;
+                  newJersy = document.getElementById("newjersyCount");
+                  newJersy.innerHTML = data.Newjersy;
+                  florida = document.getElementById("floridaCount");
+                  florida.innerHTML = data.Florida;
+                  california = document.getElementById("californiaCount");
+                  california.innerHTML = data.California;
+                  texas = document.getElementById("texasCount");
+                  texas.innerHTML = data.Texas;
+                  alaska = document.getElementById("alaskaCount");
+                  alaska.innerHTML = data.Alaska;
+                })
+
+          nameSearch = fail1
+          categorySearch = fail2
+          locationSearch = fail3
+
+        }
+        else {
+          nameSearch = document.getElementById('inputtext4').value
+          categorySearch = document.getElementById('inputCategory4').value
+          locationSearch = document.getElementById('inputLocation4').value
+        }
+
+
+        query = {
+          name: nameSearch,
+          category: categorySearch,
+          location: locationSearch
+        }
+
+        console.log(query);
+
+        fetch(`http://localhost:3000/search?name=${nameSearch}&category=${categorySearch}&location=${locationSearch}`, {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            }
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Response from server:", data.message);
+              console.log("Response from server:", data.Product);
+
+              const productsPerPage = 20;
+                      const totalPages = Math.ceil(
+                        data.Product.length / productsPerPage
+                      );
+
+                      function displayProducts(pageNumber) {
+                        const startIndex = (pageNumber - 1) * productsPerPage;
+                        const endIndex = startIndex + productsPerPage;
+                        const productsToDisplay = data.Product.slice(
+                          startIndex,
+                          endIndex
+                        );
+
+                        const productGrid = document.querySelector(
+                          ".product-grid-list .row"
+                        );
+                        productGrid.innerHTML = "";
+
+                        productsToDisplay.forEach((product, index) => {
+                          // console.log(product.price);
+                          const productHTML = `
+
+                                            <style>
+                                              .card-img-top {
+                                                width: 120px !important;
+                                                height: 110px !important;
+                                                margin-left: 60px !important;
+                                              }
+                                            </style>
+
+                                            <div class="col-sm-12 col-lg-4 col-md-6">
+                                            <!-- product card -->
+                                            <div class="product-item bg-light">
+                                              <div class="card">
+                                              <div class="thumb-content">
+                                                <div class="price">${product.price}</div>
+                                                <a href="single.html">
+                                                <img class="card-img-top img-fluid"
+                                                    src="data:image/jpeg;base64,${product.productImage}"
+                                                    alt="Card image cap"
+                                                />
+                                                </a>
+                                              </div>
+                                              <div class="card-body">
+                                                <h4 class="card-title">
+                                                <a href="single.html">${product.title}</a>
+                                                </h4>
+                                                <ul class="list-inline product-meta">
+                                                <li class="list-inline-item">
+                                                  <a href="single.html"
+                                                  ><i class="fa fa-folder-open-o"></i>${product.category}</a
+                                                  >
+                                                </li>
+                                                </ul>
+                                                <p class="card-text">${product.description}</p>
+                                                <div class="product-ratings">
+                                                <ul class="list-inline">
+                                                  <li class="list-inline-item selected">
+                                                  <i class="fa fa-star"></i>
+                                                  </li>
+                                                  <li class="list-inline-item selected">
+                                                  <i class="fa fa-star"></i>
+                                                  </li>
+                                                  <li class="list-inline-item selected">
+                                                  <i class="fa fa-star"></i>
+                                                  </li>
+                                                  <li class="list-inline-item selected">
+                                                  <i class="fa fa-star"></i>
+                                                  </li>
+                                                  <li class="list-inline-item">
+                                                  <i class="fa fa-star"></i>
+                                                  </li>
+                                                </ul>
+                                                </div>
+                                              </div>
+                                              </div>
+                                            </div>
+                                            </div>
+                                                `;
+                          productGrid.insertAdjacentHTML("beforeend", productHTML);
+                        });
+                      }
+                      displayProducts(1);
+
+                      const paginationElement =
+                        document.querySelector(".pagination ul");
+                      for (let page = 1; page <= totalPages; page++) {
+                        const li = document.createElement("li");
+                        const link = document.createElement("a");
+                        link.textContent = page;
+                        link.setAttribute("class", "page-link");
+                        link.href = "#";
+                        li.appendChild(link);
+                        // paginationElement.appendChild(li);
+
+                        link.addEventListener("click", () => {
+                          displayProducts(page);
+                        });
+                      }
+
+                      nameSearch = localStorage.removeItem('nameSearch')
+                      categorySearch = localStorage.removeItem('categorySearch')
+                      locationSearch = localStorage.removeItem('locationSearch')
+
+          })
+
+        event.preventDefault()
+      }
+
+
+      
+
+    </script>
+  </body>
+</html>
